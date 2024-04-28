@@ -1,0 +1,2 @@
+# ignore husky hooks
+.husky/* linguist-vendored
