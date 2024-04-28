@@ -1,0 +1,44 @@
+collection Pet {
+  properties {
+    name str
+    age int
+    breed enum @options(["dog", "cat", "bird"])
+    categories []enum @options(["docile", "loyal"])
+  }
+  functions {
+    get
+    getAll
+    insert
+  }
+}
+
+collection Person {
+  properties {
+    age int @minimum(10)
+    name str @minLength(10) @maxLength(30)
+    options {
+      required {
+        friends
+      }
+      properties {
+        pet []Pet
+        disabled bool
+        friends []{
+          required {
+            type
+            pet
+          }
+          properties {
+            type str
+            pet Pet
+          }
+        }
+      }
+    }
+  }
+  functions {
+    get
+    getAll
+  }
+}
+

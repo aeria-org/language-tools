@@ -1,0 +1,51 @@
+{
+  "name": "tree-sitter-aeria",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "types": "bindings/node",
+  "scripts": {
+    "test": "echo skipping",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip",
+    "build": "tree-sitter generate"
+  },
+  "keywords": [],
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "author": "",
+  "license": "ISC",
+  "tree-sitter": [
+    {
+      "scope": "source.aeria",
+      "file-types": [
+        "aeria"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ],
+      "injection-regex": "^(aeria)$"
+    }
+  ],
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.5",
+    "prebuildify": "^6.0.0"
+  },
+  "dependencies": {
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  }
+}

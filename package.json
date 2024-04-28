@@ -1,0 +1,13 @@
+{
+  "name": "aeria-language-tools",
+  "private": true,
+  "scripts": {
+    "postinstall": "husky"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "husky": "^9.0.11"
+  }
+}
