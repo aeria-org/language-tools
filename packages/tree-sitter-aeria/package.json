@@ -8,7 +8,8 @@
     "test": "echo skipping",
     "install": "node-gyp-build",
     "prebuildify": "prebuildify --napi --strip",
-    "build": "tree-sitter generate"
+    "build": "tree-sitter generate",
+    "highlight": "tree-sitter highlight ../../samples/schema.aeria"
   },
   "keywords": [],
   "files": [

@@ -1,44 +1,18 @@
-collection Pet {
-  properties {
-    name str
-    age int
-    breed enum @options(["dog", "cat", "bird"])
-    categories []enum @options(["docile", "loyal"])
-  }
-  functions {
-    get
-    getAll
-    insert
-  }
-}
-
 collection Person {
   properties {
-    age int @minimum(10)
-    name str @minLength(10) @maxLength(30)
+    name []str
+      @maxLength(2)
+      @minLength(10)
+
+    age num @minimum(50)
     options {
-      required {
-        friends
-      }
       properties {
-        pet []Pet
-        disabled bool
-        friends []{
-          required {
-            type
-            pet
-          }
-          properties {
-            type str
-            pet Pet
-          }
-        }
+        disabled num
+        picture File @accept(12)
+        friends []User @indexes(["name"])
       }
     }
   }
-  functions {
-    get
-    getAll
-  }
 }
+
 
