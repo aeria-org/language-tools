@@ -1,0 +1,132 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Aeria",
+  "scopeName": "source.aeria",
+  "fileTypes": [
+    "aeria"
+  ],
+  "patterns": [
+    {
+      "include": "#collection_definition"
+    },
+    {
+      "include": "#strings"
+    }
+  ],
+  "repository": {
+    "property_column": {
+      "match": "^\\s*(\\w+)\\s+(\\[\\])?((str|num|int|float|bool)|(\\w+))",
+      "captures": {
+        "1": {
+          "name": "variable.other.assignment.aeria"
+        },
+        "2": {
+          "name": "keyword.operator.list_type.aeria"
+        },
+        "3": {
+          "name": "support.type.primitive.aeria"
+        },
+        "4": {
+          "name": "variable.language.relations.aeria"
+        }
+      }
+    },
+    "property_object_column": {
+      "begin": "^\\s*(\\w+)\\s+(\\[\\])?({)",
+      "beginCaptures": {
+        "1": {
+          "name": "variable.other.assignment.aeria"
+        },
+        "2": {
+          "name": "keyword.operator.list_type.aeria"
+        },
+        "3": {
+          "name": "punctuation.definition.bracket.curly.begin.aeria"
+        }
+      },
+      "end": "\\s*\\}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.bracket.curly.end.aeria"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#properties"
+        }
+      ]
+    },
+    "properties": {
+      "begin": "^\\s*(properties)\\s*({)",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other"
+        },
+        "2": {
+          "name": "punctuation.section.brackets.curly.begin.aeria"
+        }
+      },
+      "end": "\\s*\\}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.section.bracket.curly.end.aeria"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#property_column"
+        },
+        {
+          "include": "#property_object_column"
+        }
+      ]
+    },
+    "collection_definition": {
+      "begin": "^\\s*(collection)\\s+([A-Z]\\w*)\\s*({)",
+      "name": "source.aeria.embedded.source",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.struct.aeria"
+        },
+        "2": {
+          "name": "entity.name.type.model.aeria"
+        },
+        "3": {
+          "name": "punctuation.definition.bracket.curly.begin.aeria"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#properties"
+        }
+      ],
+      "end": "\\s*\\}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.bracket.curly.end.aeria"
+        }
+      }
+    },
+    "strings": {
+      "name": "string.quoted.double.aeria",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.begin.aeria"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.end.aeria"
+        }
+      },
+      "patterns": [
+        {
+          "name": "constant.character.escape.aeria",
+          "match": "\\\\."
+        }
+      ]
+    }
+  }
+}
