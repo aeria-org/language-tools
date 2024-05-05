@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+if ! test -f packages/tree-sitter-aeria/aeria.so; then
+  pnpm --filter=tree-sitter-aeria build
+fi
+
+rm -rf packages/neovim/ts-dist
+mkdir packages/neovim/ts-dist
+
+cp packages/tree-sitter-aeria/aeria.so packages/neovim/ts-dist
+cp -r packages/tree-sitter-aeria/queries packages/neovim/ts-dist
+
+git add packages/neovim/ts-dist
+
