@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-if ! test -f packages/tree-sitter-aeria/aeria.so; then
+if git diff --staged | grep -q '^packages/tree-sitter-aeria'; then
   pnpm --filter=tree-sitter-aeria build
 fi
 
