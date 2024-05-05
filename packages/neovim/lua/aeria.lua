@@ -1,7 +1,7 @@
 local runtimepath = vim.api.nvim_list_runtime_paths()[1]
 local queriespath = runtimepath .. '/queries/aeria'
 local pluginpath = debug.getinfo(1).source:sub(2, -15)
-local pluginqueriespath = pluginpath .. '/../tree-sitter-aeria/queries'
+local pluginqueriespath = pluginpath .. '/ts-dist/queries'
 local aeriaSettings = vim.api.nvim_create_augroup('Aeria Settings', { clear = true })
 
 vim.filetype.add({
@@ -11,7 +11,7 @@ vim.filetype.add({
 })
 
 vim.treesitter.language.add('aeria', {
-    path = '/home/mega/aeria-language-tools/packages/tree-sitter-aeria/aeria.so',
+    path = pluginpath .. '/ts-dist/aeria.so',
     filetype = 'aeria'
 })
 
@@ -19,8 +19,12 @@ if vim.fn.isdirectory(queriespath) == 0 then
   vim.fn.mkdir(queriespath, 'p')
 
   for k, v in pairs(vim.fn.readdir(pluginqueriespath)) do
-    vim.cmd.edit(pluginqueriespath .. '/' .. v)
-    vim.cmd.write(queriespath .. '/' .. v)
+    local file = pluginqueriespath .. '/' .. v
+    local bufnr = vim.fn.bufadd(file)
+    vim.fn.bufload(bufnr)
+    vim.api.nvim_buf_call(bufnr, function()
+      vim.cmd.write(queriespath .. '/' .. v)
+    end)
   end
 end
 
