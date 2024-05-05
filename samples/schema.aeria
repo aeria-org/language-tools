@@ -1,17 +1,29 @@
 collection Person {
+  required {
+    jurandir
+    name @condition(name == "oi" || age > 18)
+  }
+--   immutable {
+--     jurandir
+--   }
+--   functions {
+--     get
+--     getAll
+--   }
+-- 
   properties {
     name []str
       @maxLength(2)
       @minLength(10)
 
-    age num @minimum(50)
-    options {
-      properties {
-        disabled num
-        picture File @accept(12)
-        friends []User @indexes(["name"])
-      }
-    }
+--     age num @minimum(50)
+--     options {
+--       properties {
+--         disabled num
+--         picture File @accept("image/*")
+--         friends []User @indexes(["name"])
+--       }
+--     }
   }
 }
 

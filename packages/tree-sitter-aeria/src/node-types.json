@@ -1,6 +1,54 @@
 [
   {
+    "type": "binary_operation",
+    "named": true,
+    "fields": {
+      "property_name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "word",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_operator",
+          "named": true
+        },
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "quoted_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "binary_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "boolean",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "builtin_function",
     "named": true,
     "fields": {}
   },
@@ -9,11 +57,47 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "schema_properties",
+          "type": "functions_block",
+          "named": true
+        },
+        {
+          "type": "functions_keyword",
+          "named": true
+        },
+        {
+          "type": "immutable_block",
+          "named": true
+        },
+        {
+          "type": "immutable_keyword",
+          "named": true
+        },
+        {
+          "type": "properties_block",
+          "named": true
+        },
+        {
+          "type": "properties_keyword",
+          "named": true
+        },
+        {
+          "type": "required_keyword",
+          "named": true
+        },
+        {
+          "type": "toplevel_required_block",
+          "named": true
+        },
+        {
+          "type": "writable_block",
+          "named": true
+        },
+        {
+          "type": "writable_keyword",
           "named": true
         }
       ]
@@ -25,6 +109,40 @@
     "fields": {}
   },
   {
+    "type": "condition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "condition_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "condition_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_operation",
+          "named": true
+        },
+        {
+          "type": "logical_concatenator_operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "declaration",
     "named": true,
     "fields": {
@@ -33,7 +151,7 @@
         "required": true,
         "types": [
           {
-            "type": "declaration_name",
+            "type": "capitalized_word",
             "named": true
           }
         ]
@@ -59,6 +177,49 @@
         }
       ]
     }
+  },
+  {
+    "type": "functions_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "builtin_function",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "immutable_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "logical_concatenator_operator",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "program",
@@ -99,7 +260,7 @@
         "required": true,
         "types": [
           {
-            "type": "declaration_name",
+            "type": "word",
             "named": true
           }
         ]
@@ -171,7 +332,11 @@
       "required": true,
       "types": [
         {
-          "type": "number",
+          "type": "quoted_string",
+          "named": true
+        },
+        {
+          "type": "string_array",
           "named": true
         }
       ]
@@ -247,7 +412,7 @@
         "required": true,
         "types": [
           {
-            "type": "declaration_name",
+            "type": "capitalized_word",
             "named": true
           }
         ]
@@ -321,6 +486,21 @@
     }
   },
   {
+    "type": "required_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "schema_properties",
     "named": true,
     "fields": {},
@@ -329,11 +509,35 @@
       "required": true,
       "types": [
         {
+          "type": "immutable_block",
+          "named": true
+        },
+        {
+          "type": "immutable_keyword",
+          "named": true
+        },
+        {
           "type": "properties_block",
           "named": true
         },
         {
           "type": "properties_keyword",
+          "named": true
+        },
+        {
+          "type": "required_block",
+          "named": true
+        },
+        {
+          "type": "required_keyword",
+          "named": true
+        },
+        {
+          "type": "writable_block",
+          "named": true
+        },
+        {
+          "type": "writable_keyword",
           "named": true
         }
       ]
@@ -348,11 +552,53 @@
       "required": false,
       "types": [
         {
-          "type": "string",
+          "type": "quoted_string",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "toplevel_required_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "condition",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "writable_block",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "!=",
+    "named": false
+  },
+  {
+    "type": "&&",
+    "named": false
   },
   {
     "type": "(",
@@ -367,7 +613,31 @@
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": "==",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
     "type": "@accept",
+    "named": false
+  },
+  {
+    "type": "@condition",
     "named": false
   },
   {
@@ -411,15 +681,39 @@
     "named": true
   },
   {
+    "type": "capitalized_word",
+    "named": true
+  },
+  {
     "type": "collection_keyword",
     "named": true
   },
   {
-    "type": "declaration_name",
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "functions_keyword",
     "named": true
   },
   {
-    "type": "false",
+    "type": "get",
+    "named": false
+  },
+  {
+    "type": "getAll",
+    "named": false
+  },
+  {
+    "type": "immutable_keyword",
+    "named": true
+  },
+  {
+    "type": "in",
+    "named": false
+  },
+  {
+    "type": "insert",
     "named": false
   },
   {
@@ -447,7 +741,23 @@
     "named": true
   },
   {
-    "type": "string",
+    "type": "quoted_string",
+    "named": true
+  },
+  {
+    "type": "remove",
+    "named": false
+  },
+  {
+    "type": "removeAll",
+    "named": false
+  },
+  {
+    "type": "removeFile",
+    "named": false
+  },
+  {
+    "type": "required_keyword",
     "named": true
   },
   {
@@ -455,7 +765,23 @@
     "named": false
   },
   {
+    "type": "upload",
+    "named": false
+  },
+  {
+    "type": "word",
+    "named": true
+  },
+  {
+    "type": "writable_keyword",
+    "named": true
+  },
+  {
     "type": "{",
+    "named": false
+  },
+  {
+    "type": "||",
     "named": false
   },
   {

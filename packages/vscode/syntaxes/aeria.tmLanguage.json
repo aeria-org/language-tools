@@ -63,13 +63,13 @@
           "name": "keyword.other"
         },
         "2": {
-          "name": "punctuation.section.brackets.curly.begin.aeria"
+          "name": "punctuation.definition.brackets.curly.begin.aeria"
         }
       },
       "end": "\\s*\\}",
       "endCaptures": {
         "0": {
-          "name": "punctuation.section.bracket.curly.end.aeria"
+          "name": "punctuation.definition.bracket.curly.end.aeria"
         }
       },
       "patterns": [
