@@ -4,14 +4,8 @@
 GIT_USER_EMAIL=$(git config --global user.email)
 GIT_USER_NAME=$(git config --global user.name)
 
-if ! test -d packages/neovim/ts-dist || git diff --staged | grep -q '^packages/tree-sitter-aeria'; then
-  pnpm --filter=tree-sitter-aeria build
-
-  rm -rf packages/neovim/ts-dist
-  mkdir packages/neovim/ts-dist
-
-  cp packages/tree-sitter-aeria/aeria.so packages/neovim/ts-dist
-  cp -r packages/tree-sitter-aeria/queries packages/neovim/ts-dist
+if ! test -d packages/neovim/ts-dist || git diff --staged --name-only | grep -q '^packages/tree-sitter-aeria'; then
+  ./scripts/rebuild-ts-dist.sh
 
   env -i sh <<< $(cat <<EOF
 cd packages/neovim

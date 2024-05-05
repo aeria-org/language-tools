@@ -29,5 +29,8 @@ collection Person {
 
 collection Pet {
   properties {
+    name str
+    breed enum @options(["dog", "cat"])
   }
 }
+

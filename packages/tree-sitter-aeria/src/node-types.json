@@ -275,6 +275,10 @@
           "named": true
         },
         {
+          "type": "property_enum",
+          "named": true
+        },
+        {
           "type": "property_file",
           "named": true
         },
@@ -292,6 +296,47 @@
         },
         {
           "type": "property_str",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "property_enum",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "property_enum_type",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "property_enum_attribute",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "property_enum_attribute",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string_array",
           "named": true
         }
       ]
@@ -669,6 +714,10 @@
     "named": false
   },
   {
+    "type": "@options",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
@@ -730,6 +779,10 @@
   },
   {
     "type": "properties_keyword",
+    "named": true
+  },
+  {
+    "type": "property_enum_type",
     "named": true
   },
   {

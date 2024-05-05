@@ -60,8 +60,16 @@ module.exports = grammar({
       repeat($.property_num_attribute)
     ),
 
-    property_obj: $ => $block($.schema_properties),
+    property_enum_attribute: $ => choice(
+      $attribute('options', $.string_array),
+    ),
+    property_enum_type: $ => 'enum',
+    property_enum: $ => seq(
+      field('type', $.property_enum_type),
+      repeat($.property_enum_attribute)
+    ),
 
+    property_obj: $ => $block($.schema_properties),
     property_file_attribute: $ => choice(
       $attribute(
         'accept',
@@ -124,6 +132,7 @@ module.exports = grammar({
       choice(
         $.property_str,
         $.property_num,
+        $.property_enum,
         $.property_obj,
         $.property_file,
         $.property_ref,
