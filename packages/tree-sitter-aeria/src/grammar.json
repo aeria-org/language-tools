@@ -388,6 +388,23 @@
         }
       ]
     },
+    "property_bool_type": {
+      "type": "STRING",
+      "value": "bool"
+    },
+    "property_bool": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "property_bool_type"
+          }
+        }
+      ]
+    },
     "property_enum_attribute": {
       "type": "CHOICE",
       "members": [
@@ -724,6 +741,10 @@
             {
               "type": "SYMBOL",
               "name": "property_num"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "property_bool"
             },
             {
               "type": "SYMBOL",

@@ -252,6 +252,22 @@
     }
   },
   {
+    "type": "property_bool",
+    "named": true,
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "property_bool_type",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "property_column",
     "named": true,
     "fields": {
@@ -272,6 +288,10 @@
       "types": [
         {
           "type": "array_identifier",
+          "named": true
+        },
+        {
+          "type": "property_bool",
           "named": true
         },
         {
@@ -779,6 +799,10 @@
   },
   {
     "type": "properties_keyword",
+    "named": true
+  },
+  {
+    "type": "property_bool_type",
     "named": true
   },
   {
