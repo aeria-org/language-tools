@@ -47,7 +47,6 @@ module.exports = grammar({
       field('type', $.property_str_type),
       repeat($.property_str_attribute),
     ),
-
     property_num_attribute: $ => choice(
       $attribute('minimum', $.number),
       $attribute('maximum', $.number),
@@ -59,7 +58,10 @@ module.exports = grammar({
       field('type', $.property_num_type),
       repeat($.property_num_attribute)
     ),
-
+    property_bool_type: $ => 'bool',
+    property_bool: $ => seq(
+      field('type', $.property_bool_type),
+    ),
     property_enum_attribute: $ => choice(
       $attribute('options', $.string_array),
     ),
@@ -68,7 +70,6 @@ module.exports = grammar({
       field('type', $.property_enum_type),
       repeat($.property_enum_attribute)
     ),
-
     property_obj: $ => $block($.schema_properties),
     property_file_attribute: $ => choice(
       $attribute(
@@ -84,7 +85,6 @@ module.exports = grammar({
       field('type', $.property_file_type),
       repeat($.property_file_attribute)
     ),
-
     property_ref_attribute: $ => choice(
       $attribute('indexes', $.string_array),
     ),
@@ -132,6 +132,7 @@ module.exports = grammar({
       choice(
         $.property_str,
         $.property_num,
+        $.property_bool,
         $.property_enum,
         $.property_obj,
         $.property_file,

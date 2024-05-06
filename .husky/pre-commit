@@ -13,7 +13,7 @@ export HOME=$HOME
 git config --global user.email "$GIT_USER_EMAIL"
 git config --global user.name "$GIT_USER_NAME"
 git add ts-dist
-git commit -m 'feat: update ts-dist'
+git commit -m 'feat: update ts-dist' || true
 EOF
 )
 
