@@ -1,47 +1,44 @@
 {
-	"name": "aeria",
-	"version": "0.0.1",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/aeria-org/aeria-language-tools.git",
-		"directory": "packages/vscode"
-	},
-	"engines": {
-		"vscode": ">=0.9.0-pre.1"
-	},
-	"publisher": "Aeria",
-	"contributes": {
-		"languages": [
-			{
-				"id": "aeria",
-				"aliases": [
-					"Aeria",
-					"aeria"
-				],
-				"extensions": [
-					"aeria"
-				],
-				"configuration": "./language-configuration.json"
-			}
-		],
-		"grammars": [
-			{
-				"language": "aeria",
-				"scopeName": "source.aeria",
-				"path": "./syntaxes/aeria.tmLanguage.json"
-			}
-		],
-		"snippets": [
-			{
-				"language": "aeria",
-				"path": "./snippets/aeria.code-snippets"
-			}
-		]
-	},
-	"devDependencies": {
-		"@vscode/vsce": "^2.26.0"
-	},
-	"__metadata": {
-		"installedTimestamp": 1714344203828
-	}
+  "name": "aeria",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aeria-org/aeria-language-tools.git",
+    "directory": "packages/vscode"
+  },
+  "engines": {
+    "vscode": ">=0.9.0-pre.1"
+  },
+  "publisher": "Aeria",
+  "contributes": {
+    "languages": [
+      {
+        "id": "aeria",
+        "aliases": [
+          "Aeria",
+          "aeria"
+        ],
+        "extensions": [
+          "aeria"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "aeria",
+        "scopeName": "source.aeria",
+        "path": "./syntaxes/aeria.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "aeria",
+        "path": "./snippets/aeria.code-snippets"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^2.26.0"
+  }
 }

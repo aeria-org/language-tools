@@ -1,36 +1,22 @@
 collection Person {
   required {
-    jurandir
-    name @condition(name == "oi" || age > 18)
+    name
   }
---   immutable {
---     jurandir
---   }
---   functions {
---     get
---     getAll
---   }
--- 
-  properties {
-    name []str
-      @maxLength(2)
-      @minLength(10)
 
---     age num @minimum(50)
---     options {
---       properties {
---         disabled num
---         picture File @accept("image/*")
---         friends []User @indexes(["name"])
---       }
---     }
+  properties {
+    name str
+    age int @maxLength(10)
+    picture File @accept(["image/*"])
   }
 }
 
 collection Pet {
   properties {
     name str
-    breed enum @options(["dog", "cat"])
+    specie enum @options([
+      "dog",
+      "cat"
+    ])
   }
 }
 
