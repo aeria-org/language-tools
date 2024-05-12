@@ -1,7 +1,7 @@
 {
   "name": "aeria-language-tools",
   "private": true,
-  "packageManager": "pnpm@9.0.6",
+  "packageManager": "pnpm@9.1.0",
   "scripts": {
     "postinstall": "husky",
     "ts-build": "./scripts/rebuild-ts-dist.sh"
