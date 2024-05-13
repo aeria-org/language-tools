@@ -109,7 +109,7 @@
     "required": {
       "begin": "^\\s*(required)\\s*({)",
       "beginCaptures": {
-        "1": { "name": "keyword.other" },
+        "1": { "name": "keyword.other.aeria" },
         "2": { "name": "punctuation.definition.brackets.curly.begin.aeria" }
       },
       "end": "\\s*\\}",
@@ -123,7 +123,7 @@
     "properties": {
       "begin": "^\\s*(properties)\\s*({)",
       "beginCaptures": {
-        "1": { "name": "keyword.other" },
+        "1": { "name": "keyword.other.aeria" },
         "2": { "name": "punctuation.definition.brackets.curly.begin.aeria" }
       },
       "end": "\\s*\\}",
