@@ -7,9 +7,7 @@
   ],
   "patterns": [
     { "include": "#comment" },
-    { "include": "#collection_definition" },
-    { "include": "#property_column" },
-    { "include": "#property_object_column" }
+    { "include": "#collection_definition" }
   ],
   "repository": {
     "comment": {
