@@ -1,9 +1,9 @@
 {
-  "name": "aeria",
-  "version": "0.0.1",
+  "name": "@aeria-lang/vscode",
+  "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aeria-org/aeria-language-tools.git",
+    "url": "https://github.com/aeria-org/language-tools.git",
     "directory": "packages/vscode"
   },
   "engines": {

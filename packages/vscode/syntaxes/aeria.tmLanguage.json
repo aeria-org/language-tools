@@ -11,9 +11,12 @@
   ],
   "repository": {
     "comment": {
-      "begin": "--",
-      "end": "$\\n?",
-      "name": "comment.aeria"
+      "begin": "(\\/\\/)",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.comment.aeria" }
+      },
+      "end": "(?:\\n|$)",
+      "name": "comment.line.double-slash.aeria"
     },
     "number": {
       "name": "constant.numeric.aeria",
@@ -131,8 +134,51 @@
         "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
       },
       "patterns": [
+        { "include": "#comment" },
         { "include": "#property_column" },
         { "include": "#property_object_column" }
+      ]
+    },
+    "function_attribute": {
+      "begin": "(@expose)(\\()",
+      "beginCaptures": {
+        "1": { "name": "entity.name.function.aeria" },
+        "2": { "name": "punctuation.section.parens.begin.aeria" }
+      },
+      "end": "\\)",
+      "endCaptures": {
+        "0": { "name": "punctuation.section.parens.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#boolean" },
+        { "include": "#quoted_string" }
+      ]
+    },
+    "function_column": {
+      "begin": "^\\s*((count|getAll|get|insert|removeAll|removeFile|remove|upload)|([a-zA-Z]([a-zA-Z0-9]|_)+))(\\??)",
+      "beginCaptures": {
+        "2": { "name": "variable.other.constant.aeria" },
+        "3": { "name": "variable.other.assignment.aeria" },
+        "5": { "name": "keyword.operator.optional.aeria" }
+      },
+      "end": "\\n?$",
+      "patterns": [
+        { "include": "#function_attribute" }
+      ]
+    },
+    "functions": {
+      "begin": "^\\s*(functions)\\s*({)",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.aeria" },
+        "2": { "name": "punctuation.definition.brackets.curly.begin.aeria" }
+      },
+      "end": "\\s*\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#function_column" }
       ]
     },
     "collection_definition": {
@@ -144,8 +190,11 @@
         "3": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
       },
       "patterns": [
+        { "include": "#comment" },
         { "include": "#required" },
-        { "include": "#properties" }
+        { "include": "#properties" },
+        { "include": "#functions" },
+        { "include": "#exposed_functions" }
       ],
       "end": "\\s*\\}",
       "endCaptures": {

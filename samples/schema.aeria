@@ -5,7 +5,7 @@ collection Person {
 
   properties {
     name str
-    age int @maxLength(10)
+    age int @maximum(10)
     picture File @accept(["image/*"])
   }
 }
