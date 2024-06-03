@@ -7,7 +7,7 @@ if ! test $GITHUB_ACTIONS && ! test $SKIP; then
 
   if ! test -d packages/neovim/ts-dist || git diff --staged --name-only | grep -q '^packages/tree-sitter-aeria'; then
     ./scripts/rebuild-ts-dist.sh
-    env -i sh <<< $(cat <<EOF
+    env -i bash <<< $(cat <<EOF
 cd packages/neovim
 export HOME=$HOME
 git config --global user.email "$GIT_USER_EMAIL"
