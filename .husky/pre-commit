@@ -4,10 +4,10 @@
 GIT_USER_EMAIL=$(git config --global user.email)
 GIT_USER_NAME=$(git config --global user.name)
 
-if ! test -d packages/neovim/ts-dist || git diff --staged --name-only | grep -q '^packages/tree-sitter-aeria'; then
-  ./scripts/rebuild-ts-dist.sh
-
-  env -i sh <<< $(cat <<EOF
+if ! test $GITHUB_ACTIONS && ! test $SKIP; then
+  if ! test -d packages/neovim/ts-dist || git diff --staged --name-only | grep -q '^packages/tree-sitter-aeria'; then
+    ./scripts/rebuild-ts-dist.sh
+    env -i sh <<< $(cat <<EOF
 cd packages/neovim
 export HOME=$HOME
 git config --global user.email "$GIT_USER_EMAIL"
@@ -16,6 +16,6 @@ git add ts-dist
 git commit -m 'feat: update ts-dist' || true
 EOF
 )
+  fi
 
 fi
-
