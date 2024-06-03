@@ -9,6 +9,12 @@
   "engines": {
     "vscode": ">=0.9.0-pre.1"
   },
+  "files": [
+    "dist",
+    "snippets",
+    "syntaxes",
+    "language-configuration.json"
+  ],
   "publisher": "Aeria",
   "main": "./dist/index.js",
   "contributes": {

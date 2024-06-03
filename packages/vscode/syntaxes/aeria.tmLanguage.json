@@ -7,7 +7,9 @@
   ],
   "patterns": [
     { "include": "#comment" },
-    { "include": "#collection_definition" }
+    { "include": "#collection_definition" },
+    { "include": "#property_column" },
+    { "include": "#property_object_column" }
   ],
   "repository": {
     "comment": {
@@ -26,7 +28,47 @@
       "name": "constant.language.aeria",
       "match": "(true|false)"
     },
+    "double_quoted_string": {
+      "name": "string.quoted.double.aeria",
+      "begin": "\"",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.string.begin.aeria" }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.string.end.aeria" }
+      },
+      "patterns": [
+        {
+          "name": "constant.character.escape.aeria",
+          "match": "\\\\."
+        }
+      ]
+    },
+    "single_quoted_string": {
+      "name": "string.quoted.single.aeria",
+      "begin": "'",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.string.begin.aeria" }
+      },
+      "end": "'",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.string.end.aeria" }
+      },
+      "patterns": [
+        {
+          "name": "constant.character.escape.aeria",
+          "match": "\\\\."
+        }
+      ]
+    },
     "quoted_string": {
+      "patterns": [
+        { "include": "#single_quoted_string" },
+        { "include": "#double_quoted_string" }
+      ]
+    },
+    "double_quoted_string": {
       "name": "string.quoted.double.aeria",
       "begin": "\"",
       "beginCaptures": {
