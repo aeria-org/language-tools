@@ -8,6 +8,12 @@ collection Person {
     age int @maximum(10)
     picture File @accept(["image/*"])
   }
+
+  functions {
+    get
+    getAll
+    custom? @expose('unauthenticated')
+  }
 }
 
 collection Pet {

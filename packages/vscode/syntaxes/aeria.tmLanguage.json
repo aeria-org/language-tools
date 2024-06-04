@@ -195,11 +195,11 @@
       ]
     },
     "function_column": {
-      "begin": "^\\s*((count|getAll|get|insert|removeAll|removeFile|remove|upload)|([a-zA-Z]([a-zA-Z0-9]|_)+))(\\??)",
+      "begin": "^\\s*(((\\w+)(\\?))|(\\w+))",
       "beginCaptures": {
-        "2": { "name": "variable.other.constant.aeria" },
         "3": { "name": "variable.other.assignment.aeria" },
-        "5": { "name": "keyword.operator.optional.aeria" }
+        "4": { "name": "keyword.operator.optional.aeria" },
+        "5": { "name": "variable.other.constant.aeria" }
       },
       "end": "\\n?$",
       "patterns": [

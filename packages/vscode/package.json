@@ -1,5 +1,5 @@
 {
-  "name": "@aeria-lang/vscode",
+  "name": "aeria-lang-vscode",
   "version": "0.0.3",
   "repository": {
     "type": "git",
@@ -17,6 +17,9 @@
   ],
   "publisher": "Aeria",
   "main": "./dist/index.js",
+  "activationEvents": [
+    "onLanguage:aeria"
+  ],
   "contributes": {
     "languages": [
       {
@@ -46,10 +49,10 @@
     ]
   },
   "devDependencies": {
-    "@vscode/vsce": "^2.26.0"
+    "@vscode/vsce": "^2.26.0",
+    "vscode": "^1.1.37"
   },
   "dependencies": {
-    "vscode": "^1.1.37",
     "vscode-languageclient": "^9.0.1"
   }
 }
