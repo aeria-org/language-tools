@@ -1,28 +1,21 @@
+// teste
 collection Person {
-  required {
+  filters {
     name
+    str
   }
-
   properties {
-    name str
-    age int @maximum(10)
-    picture File @accept(["image/*"])
+    jurandir []str @teste("teste")
+    pet Pet
+    nested {
+      properties {
+        name str
+      }
+    }
   }
 
   functions {
     get
-    getAll
-    custom? @expose('unauthenticated')
+    getAll? @expose(true)
   }
 }
-
-collection Pet {
-  properties {
-    name str
-    specie enum @options([
-      "dog",
-      "cat"
-    ])
-  }
-}
-

@@ -7,26 +7,14 @@
   ],
   "patterns": [
     { "include": "#comment" },
-    { "include": "#collection_definition" }
+    { "include": "#declaration" }
   ],
   "repository": {
     "comment": {
-      "begin": "(\\/\\/)",
-      "beginCaptures": {
-        "1": { "name": "punctuation.definition.comment.aeria" }
-      },
-      "end": "(?:\\n|$)",
-      "name": "comment.line.double-slash.aeria"
+      "name": "comment.line.double-slash.aeria",
+      "match": "(\\/\\/)([^$]*)"
     },
-    "number": {
-      "name": "constant.numeric.aeria",
-      "match": "([0-9]+)(\\.[0-9]+)?"
-    },
-    "boolean": {
-      "name": "constant.language.aeria",
-      "match": "(true|false)"
-    },
-    "double_quoted_string": {
+    "quoted-string": {
       "name": "string.quoted.double.aeria",
       "begin": "\"",
       "beginCaptures": {
@@ -43,43 +31,16 @@
         }
       ]
     },
-    "single_quoted_string": {
-      "name": "string.quoted.single.aeria",
-      "begin": "'",
-      "beginCaptures": {
-        "0": { "name": "punctuation.definition.string.begin.aeria" }
-      },
-      "end": "'",
-      "endCaptures": {
-        "0": { "name": "punctuation.definition.string.end.aeria" }
-      },
+    "constant": {
       "patterns": [
+        { "include": "#quoted-string" },
         {
-          "name": "constant.character.escape.aeria",
-          "match": "\\\\."
-        }
-      ]
-    },
-    "quoted_string": {
-      "patterns": [
-        { "include": "#single_quoted_string" },
-        { "include": "#double_quoted_string" }
-      ]
-    },
-    "double_quoted_string": {
-      "name": "string.quoted.double.aeria",
-      "begin": "\"",
-      "beginCaptures": {
-        "0": { "name": "punctuation.definition.string.begin.aeria" }
-      },
-      "end": "\"",
-      "endCaptures": {
-        "0": { "name": "punctuation.definition.string.end.aeria" }
-      },
-      "patterns": [
+          "name": "constant.language.aeria",
+          "match": "(null|undefined|true|false)"
+        },
         {
-          "name": "constant.character.escape.aeria",
-          "match": "\\\\."
+          "name": "constant.numeric.aeria",
+          "match": "([0-9]+)(\\.[0-9]+)?"
         }
       ]
     },
@@ -94,92 +55,60 @@
         "0": { "name": "punctuation.section.parens.end.aeria" }
       },
       "patterns": [
-        { "include": "#number" },
-        { "include": "#boolean" },
-        { "include": "#quoted_string" }
+        { "include": "#constant" }
       ]
     },
-    "property_column": {
-      "begin": "^\\s*(\\w+)\\s+(\\[\\])?((str|num|int|float|bool|enum)|(\\w+))",
+    "properties.column.plain": {
+      "begin": "(\\w+)\\s+(\\[\\])?((str|num|int|float|bool|enum|const)|(\\w+))",
       "beginCaptures": {
         "1": { "name": "variable.other.assignment.aeria" },
         "2": { "name": "keyword.operator.list_type.aeria" },
         "3": { "name": "support.type.primitive.aeria" },
         "4": { "name": "variable.language.relations.aeria" }
       },
-      "end": "\\n?$",
+      "end": "$",
       "patterns": [
         { "include": "#attribute" }
       ]
     },
-    "property_object_column": {
-      "begin": "^\\s*(\\w+)\\s+(\\[\\])?({)",
+    "properties.column.object": {
+      "begin": "(\\w+)\\s+(\\[\\])?(\\{)",
       "beginCaptures": {
         "1": { "name": "variable.other.assignment.aeria" },
         "2": { "name": "keyword.operator.list_type.aeria" },
-        "3": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+        "4": { "name": "variable.language.relations.aeria" }
       },
-      "end": "\\s*\\}",
-      "endCaptures": {
-        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
-      },
-      "patterns": [
-        { "include": "#required" },
-        { "include": "#properties" }
-      ]
-    },
-    "condition": {
-      "begin": "(@cond)(\\()",
-      "beginCaptures": {
-        "1": { "name": "entity.name.function.aeria" },
-        "2": { "name": "punctuation.section.parens.begin.aeria" }
-      },
-      "end": "\\)",
-      "endCaptures": {
-        "0": { "name": "punctuation.section.parens.end.aeria" }
-      }
-    },
-    "conditional_property_column": {
-      "begin": "^\\s*(\\w+)",
-      "beginCaptures": {
-        "1": { "name": "variable.other.aeria" }
-      },
-      "end": "\\n?$",
-      "patterns": [
-        { "include": "#condition" }
-      ]
-    },
-    "required": {
-      "begin": "^\\s*(required)\\s*({)",
-      "beginCaptures": {
-        "1": { "name": "keyword.other.aeria" },
-        "2": { "name": "punctuation.definition.brackets.curly.begin.aeria" }
-      },
-      "end": "\\s*\\}",
-      "endCaptures": {
-        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
-      },
-      "patterns": [
-        { "include": "#conditional_property_column" }
-      ]
-    },
-    "properties": {
-      "begin": "^\\s*(properties)\\s*({)",
-      "beginCaptures": {
-        "1": { "name": "keyword.other.aeria" },
-        "2": { "name": "punctuation.definition.brackets.curly.begin.aeria" }
-      },
-      "end": "\\s*\\}",
+      "end": "\\}",
       "endCaptures": {
         "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
       },
       "patterns": [
         { "include": "#comment" },
-        { "include": "#property_column" },
-        { "include": "#property_object_column" }
+        { "include": "#properties" }
       ]
     },
-    "function_attribute": {
+    "properties.column": {
+      "patterns": [
+        { "include": "#properties.column.plain" },
+        { "include": "#properties.column.object" }
+      ]
+    },
+    "properties": {
+      "begin": "(properties)\\s*(\\{)",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.aeria" },
+        "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#properties.column" }
+      ]
+    },
+    "collection.functions.column.attribute": {
       "begin": "(@expose)(\\()",
       "beginCaptures": {
         "1": { "name": "entity.name.function.aeria" },
@@ -190,56 +119,91 @@
         "0": { "name": "punctuation.section.parens.end.aeria" }
       },
       "patterns": [
-        { "include": "#boolean" },
-        { "include": "#quoted_string" }
+        { "include": "#constant" }
       ]
     },
-    "function_column": {
-      "begin": "^\\s*(((\\w+)(\\?))|(\\w+))",
+    "collection.functions.column": {
+      "begin": "(((\\w+)(\\?))|(\\w+))",
       "beginCaptures": {
         "3": { "name": "variable.other.assignment.aeria" },
         "4": { "name": "keyword.operator.optional.aeria" },
         "5": { "name": "variable.other.constant.aeria" }
       },
-      "end": "\\n?$",
+      "end": "$",
       "patterns": [
-        { "include": "#function_attribute" }
+        { "include": "#collection.functions.column.attribute" }
       ]
     },
-    "functions": {
-      "begin": "^\\s*(functions)\\s*({)",
+    "collection.keyed-list": {
+      "begin": "(indexes|form|filters|required|table|tableMeta)\\s+(\\{)",
       "beginCaptures": {
         "1": { "name": "keyword.other.aeria" },
-        "2": { "name": "punctuation.definition.brackets.curly.begin.aeria" }
+        "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
       },
-      "end": "\\s*\\}",
+      "end": "\\}",
       "endCaptures": {
         "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
       },
       "patterns": [
         { "include": "#comment" },
-        { "include": "#function_column" }
+        {
+          "name": "variable.other.assignment.aeria",
+          "match": "(\\w+)"
+        }
       ]
     },
-    "collection_definition": {
-      "begin": "^\\s*(collection)\\s+([A-Z]\\w*)\\s*({)",
-      "name": "source.aeria.embedded.source",
+    "collection.functions": {
+      "begin": "(functions)\\s*(\\{)",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.aeria" },
+        "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#collection.functions.column" }
+      ]
+    },
+    "collection.security": {
+      "begin": "(security)\\s*(\\{)",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.aeria" },
+        "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#comment" }
+      ]
+    },
+    "collection": {
+      "begin": "(collection)\\s*(\\w+)\\s*(\\{)",
       "beginCaptures": {
         "1": { "name": "storage.type.struct.aeria" },
         "2": { "name": "entity.name.type.model.aeria" },
         "3": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
       },
-      "patterns": [
-        { "include": "#comment" },
-        { "include": "#required" },
-        { "include": "#properties" },
-        { "include": "#functions" },
-        { "include": "#exposed_functions" }
-      ],
-      "end": "\\s*\\}",
+      "end": "\\}",
       "endCaptures": {
         "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
-      }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#properties" },
+        { "include": "#collection.keyed-list" },
+        { "include": "#collection.functions" },
+        { "include": "#collection.security" }
+      ]
+    },
+    "declaration": {
+      "patterns": [
+        { "include": "#collection" }
+      ]
     }
   }
 }

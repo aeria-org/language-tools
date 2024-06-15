@@ -1,6 +1,6 @@
 {
   "comments": {
-    "lineComment": "--"
+    "lineComment": "//"
   },
   "brackets": [
     ["{", "}"],
@@ -17,21 +17,13 @@
       "notIn": [
         "string"
       ]
-    },
-    {
-      "open": "'",
-      "close": "'",
-      "notIn": [
-        "string"
-      ]
     }
   ],
   "surroundingPairs": [
     ["{", "}"],
     ["[", "]"],
     ["(", ")"],
-    ["\"", "\""],
-    ["'", "'"]
+    ["\"", "\""]
   ],
   "folding": {
     "offSide": true,
