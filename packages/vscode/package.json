@@ -44,7 +44,7 @@
     "snippets": [
       {
         "language": "aeria",
-        "path": "./snippets/aeria.code-snippets"
+        "path": "./snippets/aeria.json"
       }
     ]
   },

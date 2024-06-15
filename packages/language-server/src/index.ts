@@ -1,14 +1,7 @@
-import type {
-  InitializeResult,
-} from 'vscode-languageserver'
-
-import {
-  createConnection,
-  ProposedFeatures,
-  TextDocuments,
-} from 'vscode-languageserver/node'
-
+import type { InitializeResult } from 'vscode-languageserver'
+import { createConnection, ProposedFeatures, TextDocuments } from 'vscode-languageserver/node'
 import { TextDocument } from 'vscode-languageserver-textdocument'
+import { reportDiagnostics } from './lib.js'
 
 const connection = createConnection(ProposedFeatures.all)
 const documents = new TextDocuments(TextDocument)
@@ -18,9 +11,7 @@ connection.onInitialize((params) => {
     capabilities: {
       definitionProvider: true,
       documentFormattingProvider: true,
-      completionProvider: {
-        resolveProvider: true,
-      },
+      completionProvider: {},
       hoverProvider: true,
     }
   }
@@ -28,8 +19,8 @@ connection.onInitialize((params) => {
   return result
 })
 
-documents.onDidChangeContent(() => {
-  connection.window.showInformationMessage('Language server loaded (testing)')
+documents.onDidChangeContent(async (event) => {
+  return reportDiagnostics(event, connection)
 })
 
 documents.listen(connection)
