@@ -8,7 +8,7 @@
     "directory": "packages/vscode"
   },
   "engines": {
-    "vscode": ">=0.9.0-pre.1"
+    "vscode": ">=1.90.0"
   },
   "files": [
     "dist",
