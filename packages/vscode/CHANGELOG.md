@@ -1,5 +1,15 @@
 # @aeria-lang/vscode
 
+## 0.0.4
+
+### Patch Changes
+
+- 656792d: Bundle packages
+- 656792d: Bundle packages
+- Updated dependencies [656792d]
+- Updated dependencies [656792d]
+  - @aeria-lang/language-server@0.0.2
+
 ## 0.0.3
 
 ### Patch Changes
