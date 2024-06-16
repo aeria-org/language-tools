@@ -7,7 +7,6 @@
     "ts-build": "./scripts/rebuild-ts-dist.sh"
   },
   "devDependencies": {
-    "@aeria-lang/language-server": "link:./packages/language-server",
     "@changesets/cli": "^2.27.1",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
