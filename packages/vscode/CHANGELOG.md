@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.2
+
+### Patch Changes
+
+- 76ae056: Release
+
 ## 0.0.1
 
 ### Patch Changes
