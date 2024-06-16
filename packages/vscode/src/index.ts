@@ -1,6 +1,4 @@
 import type { ExtensionContext } from 'vscode'
-
-// import * as path from 'path'
 import {
   LanguageClient,
   LanguageClientOptions,
@@ -11,7 +9,7 @@ import {
 let client: LanguageClient
 
 export function activate(context: ExtensionContext) {
-  const serverModule = require.resolve('@aeria-lang/language-server')
+  const serverModule = './language-server.js'
   const serverOptions: ServerOptions = {
     run: {
       module: serverModule,
