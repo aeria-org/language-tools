@@ -1,6 +1,7 @@
 {
   "name": "aeria-lang-vscode",
   "version": "0.0.2",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/aeria-org/language-tools.git",
@@ -53,6 +54,18 @@
     "vscode": "^1.1.37"
   },
   "dependencies": {
+    "@aeria-lang/language-server": "^0.0.1",
     "vscode-languageclient": "^9.0.1"
+  },
+  "__metadata": {
+    "id": "5ad2b655-99d0-4d05-a8a9-729450a3621e",
+    "publisherId": "2ee8b56b-5eba-4557-b711-130f74e008cb",
+    "publisherDisplayName": "Aeria",
+    "targetPlatform": "undefined",
+    "updated": false,
+    "isPreReleaseVersion": false,
+    "hasPreReleaseVersion": false,
+    "installedTimestamp": 1718503638262,
+    "pinned": false
   }
 }

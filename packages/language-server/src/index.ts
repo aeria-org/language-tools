@@ -9,7 +9,6 @@ const documents = new TextDocuments(TextDocument)
 connection.onInitialize(() => {
   const result: InitializeResult = {
     capabilities: {
-      completionProvider: {},
     }
   }
 

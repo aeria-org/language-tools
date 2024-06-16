@@ -1,9 +1,9 @@
-collection Person {
+collection Pet {
     properties {
-        name str @aaa(true)
+        name str
     }
     functions {
-        get
+        get @expose(true)
         getAll
         insert
         remove

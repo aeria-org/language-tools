@@ -51,6 +51,9 @@ importers:
 
   packages/vscode:
     dependencies:
+      '@aeria-lang/language-server':
+        specifier: ^0.0.1
+        version: 0.0.1
       vscode-languageclient:
         specifier: ^9.0.1
         version: 9.0.1
@@ -69,6 +72,9 @@ packages:
 
   '@aeria-lang/compiler@0.0.4':
     resolution: {integrity: sha512-0EUwmRNMBFeRcnhya0Jn0ecrHbqU1Mp5nrAHd9siT1Lov+c0tA9HoiKjfDQh/AUkK0GBYFU4PmsWTPHEM1AkQw==}
+
+  '@aeria-lang/language-server@0.0.1':
+    resolution: {integrity: sha512-VVWFa9auKqFWzWMIp2t89rxdcnaykUd2MSiH9lNstFNk3G6Av+4ycpO3UXx1piPGPwFk16KcFOiE3jBp0Fsbgg==}
 
   '@azure/abort-controller@1.1.0':
     resolution: {integrity: sha512-TrRLIoSQVzfAJX9H1JeFjzAoDGcoK1IYX1UImfceTZpsyYfWr09Ss1aHW1y5TrrR3iq6RZLBwJ3E24uwPhwahw==}
@@ -2189,6 +2195,12 @@ snapshots:
   '@aeria-lang/compiler@0.0.4':
     dependencies:
       prettier: 3.3.2
+
+  '@aeria-lang/language-server@0.0.1':
+    dependencies:
+      aeria-lang: 0.0.6
+      vscode-languageserver: 9.0.1
+      vscode-languageserver-textdocument: 1.0.11
 
   '@azure/abort-controller@1.1.0':
     dependencies:
