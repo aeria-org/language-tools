@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.5
+
+### Patch Changes
+
+- bbcaa83: Fix relative path
+
 ## 0.0.4
 
 ### Patch Changes
