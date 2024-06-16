@@ -3,7 +3,7 @@ collection Pet {
         name str
     }
     functions {
-        get @exposekj(true)
+        get @exposekxj(true)
         getAll
         insert
         remove

@@ -9,7 +9,7 @@ import {
 let client: LanguageClient
 
 export function activate(context: ExtensionContext) {
-  const serverModule = './language-server.js'
+  const serverModule = context.asAbsolutePath('./dist/language-server.js')
   const serverOptions: ServerOptions = {
     run: {
       module: serverModule,

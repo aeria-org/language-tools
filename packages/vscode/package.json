@@ -57,10 +57,10 @@
     "pub": "vsce publish"
   },
   "devDependencies": {
-    "@aeria-lang/language-server": "link:../language-server",
+    "@aeria-lang/language-server": "file:../language-server",
     "@types/node": "^20.14.2",
-    "@vscode/vsce": "^2.26.0",
-    "vscode": "^1.1.37"
+    "@types/vscode": "^1.90.0",
+    "@vscode/vsce": "^2.26.0"
   },
   "peerDependencies": {
     "@aeria-lang/language-server": "^0.0.2"
