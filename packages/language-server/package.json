@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "pnpm tsc --noEmit && pnpm esbuild src/index.ts --bundle --format=cjs --outdir=dist --platform=node --inject:../../shims/importMeta.js ",
-    "prepublishOnly": "build"
+    "prepublishOnly": "pnpm build"
   },
   "files": [
     "dist"
