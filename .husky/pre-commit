@@ -19,3 +19,6 @@ EOF
   fi
 
 fi
+
+git add pnpm-lock.yaml
+
