@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.6
+
+### Patch Changes
+
+- 841b27a: Downgrade vscode version
+
 ## 0.0.5
 
 ### Patch Changes
