@@ -4,35 +4,34 @@ import { fileURLToPath } from 'url'
 
 export const reportDiagnostics = async ({ document }: TextDocumentChangeEvent<TextDocument>, connection: Connection) => {
   const lang = await import('aeria-lang')
+  const source = document.getText()
+
   const resultEither = lang.compileSource({
     filename: fileURLToPath(document.uri),
-    source: document.getText(),
+    source,
     module: 'esnext',
   })
 
 
-  console.log(JSON.stringify(resultEither, null, 2))
   if( lang.isLeft(resultEither) ) {
-    const result = lang.unwrapEither(resultEither)
+    const diagnostic = lang.unwrap(lang.unwrap(resultEither))
+    const range = lang.getNormalizedSpan(diagnostic.span)
 
     connection.sendDiagnostics({
-      uri: document.uri,
+      uri: diagnostic.filepath,
       diagnostics: [
         {
-          message: 'test',
-          range: {
-            start: {
-              line: 2,
-              character: 0
-            },
-            end: {
-              line: 2,
-              character: 10
-            },
-          }
+          message: diagnostic.info,
+          range,
         }
       ]
     })
+    return
   }
+
+  connection.sendDiagnostics({
+    uri: document.uri,
+    diagnostics: []
+  })
 }
 

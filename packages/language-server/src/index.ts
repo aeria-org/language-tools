@@ -6,13 +6,10 @@ import { reportDiagnostics } from './lib.js'
 const connection = createConnection(ProposedFeatures.all)
 const documents = new TextDocuments(TextDocument)
 
-connection.onInitialize((params) => {
+connection.onInitialize(() => {
   const result: InitializeResult = {
     capabilities: {
-      definitionProvider: true,
-      documentFormattingProvider: true,
       completionProvider: {},
-      hoverProvider: true,
     }
   }
 

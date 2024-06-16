@@ -1,21 +1,11 @@
-// teste
 collection Person {
-  filters {
-    name
-    str
-  }
-  properties {
-    jurandir []str @teste("teste")
-    pet Pet
-    nested {
-      properties {
-        name str
-      }
+    properties {
+        name str @aaa(true)
     }
-  }
-
-  functions {
-    get
-    getAll? @expose(true)
-  }
+    functions {
+        get
+        getAll
+        insert
+        remove
+    }
 }

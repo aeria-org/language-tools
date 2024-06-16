@@ -11,10 +11,7 @@ import {
 let client: LanguageClient
 
 export function activate(context: ExtensionContext) {
-  const serverModule = context.asAbsolutePath(
-    '../../../aeria-language-tools/packages/language-server/dist/index.js'
-  )
-
+  const serverModule = require.resolve('@aeria-lang/language-server')
   const serverOptions: ServerOptions = {
     run: {
       module: serverModule,
