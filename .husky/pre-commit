@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm i --no-frozen-lockfile
-
 if ! test $GITHUB_ACTIONS && ! test $SKIP; then
   GIT_USER_EMAIL=$(git config --global user.email)
   GIT_USER_NAME=$(git config --global user.name)
