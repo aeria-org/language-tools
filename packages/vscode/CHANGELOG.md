@@ -1,5 +1,12 @@
 # @aeria-lang/vscode
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [9357851]
+  - @aeria-lang/language-server@0.0.2
+
 ## 0.0.3
 
 ### Patch Changes
