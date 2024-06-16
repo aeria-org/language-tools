@@ -1,5 +1,13 @@
 # @aeria-lang/vscode
 
+## 0.0.3
+
+### Patch Changes
+
+- 4f95bab: Update
+- Updated dependencies [4f95bab]
+  - @aeria-lang/language-server@0.0.2
+
 ## 0.0.2
 
 ### Patch Changes
