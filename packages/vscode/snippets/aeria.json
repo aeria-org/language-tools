@@ -14,21 +14,5 @@
       "\t}",
       "}"
     ]
-  },
-  "Collection with exposed CRUD functions": {
-    "prefix": "collection-expose",
-    "description": "Declare a new collection",
-    "body": [
-      "collection ${1:Name} {",
-      "\tproperties {",
-      "\t}",
-      "\tfunctions {",
-      "\t\tget @expose",
-      "\t\tgetAll @expose",
-      "\t\tinsert @expose",
-      "\t\tremove @expose",
-      "\t}",
-      "}"
-    ]
   }
 }
