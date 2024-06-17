@@ -1,6 +1,6 @@
 import type { Connection, TextDocumentChangeEvent } from 'vscode-languageserver'
 import type { TextDocument } from 'vscode-languageserver-textdocument'
-import { fileURLToPath } from 'url'
+import { fileURLToPath, pathToFileURL } from 'url'
 
 export const reportDiagnostics = async ({ document }: TextDocumentChangeEvent<TextDocument>, connection: Connection) => {
   const lang = await import('aeria-lang')
@@ -18,7 +18,7 @@ export const reportDiagnostics = async ({ document }: TextDocumentChangeEvent<Te
     const range = lang.getNormalizedSpan(diagnostic.span)
 
     connection.sendDiagnostics({
-      uri: diagnostic.filepath,
+      uri: pathToFileURL(diagnostic.filepath).href,
       diagnostics: [
         {
           message: diagnostic.info,
