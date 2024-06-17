@@ -51,7 +51,7 @@
   },
   "scripts": {
     "build": "pnpm tsc --noEmit && pnpm bundle",
-    "bundle:server": "if ! test -f ../language-server/dist/index.js; then pnpm -w language-server build; fi; cp ../language-server/dist/index.js dist/language-server.js",
+    "bundle:server": "pnpm --filter=language-server build; cp ../language-server/dist/index.js dist/language-server.js",
     "bundle": "pnpm esbuild src/index.ts --bundle --format=cjs --outdir=dist --platform=node --external:vscode && pnpm bundle:server",
     "vscode:prepublish": "pnpm build",
     "pub": "vsce publish"
