@@ -71,6 +71,24 @@
         { "include": "#attribute" }
       ]
     },
+    "properties.column.object.keyed-list": {
+      "begin": "(form|required|writable)\\s+(\\{)",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.aeria" },
+        "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        {
+          "name": "variable.other.assignment.aeria",
+          "match": "(\\w+)"
+        }
+      ]
+    },
     "properties.column.object": {
       "begin": "(\\w+)\\s+(\\[\\])?(\\{)",
       "beginCaptures": {
@@ -84,6 +102,7 @@
       },
       "patterns": [
         { "include": "#comment" },
+        { "include": "#properties.column.object.keyed-list" },
         { "include": "#properties" }
       ]
     },
@@ -135,7 +154,7 @@
       ]
     },
     "collection.keyed-list": {
-      "begin": "(indexes|form|filters|required|table|tableMeta)\\s+(\\{)",
+      "begin": "(indexes|form|filters|required|table|tableMeta|writable)\\s+(\\{)",
       "beginCaptures": {
         "1": { "name": "keyword.other.aeria" },
         "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
