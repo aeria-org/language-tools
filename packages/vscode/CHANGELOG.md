@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.8
+
+### Patch Changes
+
+- 19740fb: Remove `collection-exposed` snippet
+
 ## 0.0.7
 
 ### Patch Changes
