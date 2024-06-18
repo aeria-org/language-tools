@@ -55,7 +55,7 @@
     "bundle:cp": "cp ../language-server/dist/index.js dist/language-server.js",
     "bundle:server": "pnpm --filter=language-server build && pnpm bundle:cp",
     "bundle": "pnpm esbuild src/index.ts --bundle --format=cjs --outdir=dist --platform=node --external:vscode && pnpm bundle:server",
-    "vscode:prepublish": "if ! test $GITHUB_ACTIONS; then pnpm build; else pnpm bundle:cp; fi; rm -f dist/latest.vsix",
+    "vscode:prepublish": "if ! test $GITHUB_ACTIONS; then pnpm build; rm -f dist/latest.vsix; fi",
     "pack": "vsce pack --out dist/latest.vsix",
     "publish:ovsx": "ovsx publish --packagePath dist/latest.vsix",
     "publish:vsce": "vsce publish --packagePath dist/latest.vsix"
