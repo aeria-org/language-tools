@@ -9,8 +9,9 @@ case $BRANCH_NAME in
   ;;
 esac
 
-echo ${VSCE_PAT:0:10}
-echo ${OVSX_PAT:0:10}
+env
+echo $VSCE_PAT
+echo $OVSX_PAT
 
 echo "$VSCE_PAT" > ~/.vsce
 pnpm --filter=./packages/vscode run pack
