@@ -52,16 +52,20 @@
   },
   "scripts": {
     "build": "pnpm tsc --noEmit && pnpm bundle",
-    "bundle:server": "pnpm --filter=language-server build; cp ../language-server/dist/index.js dist/language-server.js",
+    "bundle:cp": "cp ../language-server/dist/index.js dist/language-server.js",
+    "bundle:server": "pnpm --filter=language-server build && pnpm bundle:cp",
     "bundle": "pnpm esbuild src/index.ts --bundle --format=cjs --outdir=dist --platform=node --external:vscode && pnpm bundle:server",
-    "vscode:prepublish": "pnpm build",
-    "pub": "vsce publish"
+    "vscode:prepublish": "if ! test $GITHUB_ACTIONS; then pnpm build; else pnpm bundle:cp; fi; rm -f dist/latest.vsix",
+    "pack": "vsce pack --out dist/latest.vsix",
+    "publish:ovsx": "ovsx publish --packagePath dist/latest.vsix",
+    "publish:vsce": "vsce publish --packagePath dist/latest.vsix"
   },
   "devDependencies": {
     "@aeria-lang/language-server": "file:../language-server",
     "@types/node": "^20.14.2",
     "@types/vscode": "^1.56.0",
-    "@vscode/vsce": "^2.26.0"
+    "@vscode/vsce": "^2.26.0",
+    "ovsx": "^0.9.1"
   },
   "peerDependencies": {
     "@aeria-lang/language-server": "^0.0.2"
