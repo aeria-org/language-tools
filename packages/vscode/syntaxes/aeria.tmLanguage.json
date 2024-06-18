@@ -72,7 +72,7 @@
       ]
     },
     "properties.column.object.keyed-list": {
-      "begin": "(form|required|writable)\\s+(\\{)",
+      "begin": "\\b(form|required|writable)\\s+(\\{)",
       "beginCaptures": {
         "1": { "name": "keyword.other.aeria" },
         "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
@@ -113,7 +113,7 @@
       ]
     },
     "properties": {
-      "begin": "(properties)\\s*(\\{)",
+      "begin": "\\b(properties)\\s*(\\{)",
       "beginCaptures": {
         "1": { "name": "keyword.other.aeria" },
         "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
@@ -154,7 +154,7 @@
       ]
     },
     "collection.keyed-list": {
-      "begin": "(indexes|form|filters|required|table|tableMeta|writable)\\s+(\\{)",
+      "begin": "\\b(indexes|form|filters|required|table|tableMeta|writable|presets)\\s+(\\{)",
       "beginCaptures": {
         "1": { "name": "keyword.other.aeria" },
         "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
@@ -172,7 +172,7 @@
       ]
     },
     "collection.functions": {
-      "begin": "(functions)\\s*(\\{)",
+      "begin": "\\b(functions)\\s*(\\{)",
       "beginCaptures": {
         "1": { "name": "keyword.other.aeria" },
         "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
@@ -187,7 +187,7 @@
       ]
     },
     "collection.security": {
-      "begin": "(security)\\s*(\\{)",
+      "begin": "\\b(security)\\s*(\\{)",
       "beginCaptures": {
         "1": { "name": "keyword.other.aeria" },
         "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
@@ -200,8 +200,19 @@
         { "include": "#comment" }
       ]
     },
+    "collection.icon": {
+      "begin": "\\b(icon)\\s+",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.aeria" }
+      },
+      "end": "$",
+      "patterns": [
+        { "include": "#quoted-string" }
+      ]
+
+    },
     "collection": {
-      "begin": "(collection)\\s*(\\w+)\\s*(\\{)",
+      "begin": "\\b(collection)\\s*(\\w+)\\s*(\\{)",
       "beginCaptures": {
         "1": { "name": "storage.type.struct.aeria" },
         "2": { "name": "entity.name.type.model.aeria" },
@@ -214,6 +225,7 @@
       "patterns": [
         { "include": "#comment" },
         { "include": "#properties" },
+        { "include": "#collection.icon" },
         { "include": "#collection.keyed-list" },
         { "include": "#collection.functions" },
         { "include": "#collection.security" }
