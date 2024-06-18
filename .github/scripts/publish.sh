@@ -9,9 +9,8 @@ case $BRANCH_NAME in
   ;;
 esac
 
-echo -n "$VSCE_PAT" > ~/.vsce
-
 pnpm --filter=./packages/vscode run pack
 pnpm --filter=./packages/vscode publish:ovsx
+echo -n "$VSCE_PAT" > ~/.vsce
 pnpm --filter=./packages/vscode publish:vsce
 
