@@ -13,7 +13,7 @@ importers:
         version: 2.27.5
       '@commitlint/cli':
         specifier: ^19.3.0
-        version: 19.3.0(@types/node@20.14.2)(typescript@5.4.5)
+        version: 19.3.0(@types/node@20.14.4)(typescript@5.4.5)
       '@commitlint/config-conventional':
         specifier: ^19.2.2
         version: 19.2.2
@@ -63,13 +63,16 @@ importers:
         version: link:../language-server
       '@types/node':
         specifier: ^20.14.2
-        version: 20.14.2
+        version: 20.14.4
       '@types/vscode':
         specifier: ^1.56.0
         version: 1.90.0
       '@vscode/vsce':
         specifier: ^2.26.0
         version: 2.27.0
+      ovsx:
+        specifier: ^0.9.1
+        version: 0.9.1
 
 packages:
 
@@ -440,8 +443,8 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@20.14.2':
-    resolution: {integrity: sha512-xyu6WAMVwv6AKFLB+e/7ySZVr/0zLCzOa7rSpq6jNwpqOrUbcACDWC+53d4n2QHOnDou0fbIsg8wZu/sxrnI4Q==}
+  '@types/node@20.14.4':
+    resolution: {integrity: sha512-1ChboN+57suCT2t/f8lwtPY/k3qTpuD/qnqQuYoBg6OQOcPyaw7PiZVdGpaZYAvhDDtqrt0oAaM8+oSu1xsUGw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -660,6 +663,9 @@ packages:
 
   chownr@1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
+
+  ci-info@2.0.0:
+    resolution: {integrity: sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==}
 
   ci-info@3.9.0:
     resolution: {integrity: sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==}
@@ -982,6 +988,15 @@ packages:
   find-yarn-workspace-root2@1.2.16:
     resolution: {integrity: sha512-hr6hb1w8ePMpPVUK39S4RlwJzi+xPLuVuG8XlwXU3KD5Yn3qgBWVfy3AzNlDhWvE1EORCE65/Qm26rFQt3VLVA==}
 
+  follow-redirects@1.15.6:
+    resolution: {integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==}
+    engines: {node: '>=4.0'}
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+
   for-each@0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
 
@@ -1196,6 +1211,10 @@ packages:
   is-callable@1.2.7:
     resolution: {integrity: sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==}
     engines: {node: '>= 0.4'}
+
+  is-ci@2.0.0:
+    resolution: {integrity: sha512-YfJT7rkpQB0updsdHLGWrvhBJfcfzNNawYDNIyQXJz0IViGf75O8EBPKSdvw2rF+LGCsX4FZ8tcr3b19LcZq4w==}
+    hasBin: true
 
   is-core-module@2.13.1:
     resolution: {integrity: sha512-hHrIjvZsftOsvKSn2TRYl63zvxsgE0K+0mYMoH6gD4omR5IWB2KynivBQczo3+wF1cCkjzvptnI9Q0sPU66ilw==}
@@ -1595,6 +1614,11 @@ packages:
 
   outdent@0.5.0:
     resolution: {integrity: sha512-/jHxFIzoMXdqPzTaCpFzAAWhpkSjZPF4Vsn6jAfNpmbH/ymsmd7Qc6VE9BGn0L6YMj6uwpQLxCECpus4ukKS9Q==}
+
+  ovsx@0.9.1:
+    resolution: {integrity: sha512-faORiHeVdRFXVjvwjGvsGdfw49ocUZwUvjrrObZDzhlkKkrUS8L2afeXF8goeuv1YbTV8lmFfBYAt0C4FaoVuQ==}
+    engines: {node: '>= 16'}
+    hasBin: true
 
   p-filter@2.1.0:
     resolution: {integrity: sha512-ZBxxZ5sL2HghephhpGAQdoskxplTwr7ICaehZwLIlfL6acuVgZPm8yBNuRAFBGEqtD/hmUeq9eqLg2ys9Xr/yw==}
@@ -2487,11 +2511,11 @@ snapshots:
       human-id: 1.0.2
       prettier: 2.8.8
 
-  '@commitlint/cli@19.3.0(@types/node@20.14.2)(typescript@5.4.5)':
+  '@commitlint/cli@19.3.0(@types/node@20.14.4)(typescript@5.4.5)':
     dependencies:
       '@commitlint/format': 19.3.0
       '@commitlint/lint': 19.2.2
-      '@commitlint/load': 19.2.0(@types/node@20.14.2)(typescript@5.4.5)
+      '@commitlint/load': 19.2.0(@types/node@20.14.4)(typescript@5.4.5)
       '@commitlint/read': 19.2.1
       '@commitlint/types': 19.0.3
       execa: 8.0.1
@@ -2538,7 +2562,7 @@ snapshots:
       '@commitlint/rules': 19.0.3
       '@commitlint/types': 19.0.3
 
-  '@commitlint/load@19.2.0(@types/node@20.14.2)(typescript@5.4.5)':
+  '@commitlint/load@19.2.0(@types/node@20.14.4)(typescript@5.4.5)':
     dependencies:
       '@commitlint/config-validator': 19.0.3
       '@commitlint/execute-rule': 19.0.0
@@ -2546,7 +2570,7 @@ snapshots:
       '@commitlint/types': 19.0.3
       chalk: 5.3.0
       cosmiconfig: 9.0.0(typescript@5.4.5)
-      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.14.2)(cosmiconfig@9.0.0(typescript@5.4.5))(typescript@5.4.5)
+      cosmiconfig-typescript-loader: 5.0.0(@types/node@20.14.4)(cosmiconfig@9.0.0(typescript@5.4.5))(typescript@5.4.5)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -2709,13 +2733,13 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.0':
     dependencies:
-      '@types/node': 20.14.2
+      '@types/node': 20.14.4
 
   '@types/minimist@1.2.5': {}
 
   '@types/node@12.20.55': {}
 
-  '@types/node@20.14.2':
+  '@types/node@20.14.4':
     dependencies:
       undici-types: 5.26.5
 
@@ -2976,6 +3000,8 @@ snapshots:
 
   chownr@1.1.4: {}
 
+  ci-info@2.0.0: {}
+
   ci-info@3.9.0: {}
 
   cliui@6.0.0:
@@ -3034,9 +3060,9 @@ snapshots:
       meow: 12.1.1
       split2: 4.2.0
 
-  cosmiconfig-typescript-loader@5.0.0(@types/node@20.14.2)(cosmiconfig@9.0.0(typescript@5.4.5))(typescript@5.4.5):
+  cosmiconfig-typescript-loader@5.0.0(@types/node@20.14.4)(cosmiconfig@9.0.0(typescript@5.4.5))(typescript@5.4.5):
     dependencies:
-      '@types/node': 20.14.2
+      '@types/node': 20.14.4
       cosmiconfig: 9.0.0(typescript@5.4.5)
       jiti: 1.21.6
       typescript: 5.4.5
@@ -3379,6 +3405,8 @@ snapshots:
       micromatch: 4.0.7
       pkg-dir: 4.2.0
 
+  follow-redirects@1.15.6: {}
+
   for-each@0.3.3:
     dependencies:
       is-callable: 1.2.7
@@ -3604,6 +3632,10 @@ snapshots:
       has-tostringtag: 1.0.2
 
   is-callable@1.2.7: {}
+
+  is-ci@2.0.0:
+    dependencies:
+      ci-info: 2.0.0
 
   is-core-module@2.13.1:
     dependencies:
@@ -3975,6 +4007,19 @@ snapshots:
   os-tmpdir@1.0.2: {}
 
   outdent@0.5.0: {}
+
+  ovsx@0.9.1:
+    dependencies:
+      '@vscode/vsce': 2.27.0
+      commander: 6.2.1
+      follow-redirects: 1.15.6
+      is-ci: 2.0.0
+      leven: 3.1.0
+      semver: 7.6.2
+      tmp: 0.2.3
+    transitivePeerDependencies:
+      - debug
+      - supports-color
 
   p-filter@2.1.0:
     dependencies:
