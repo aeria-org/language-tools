@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.9
+
+### Patch Changes
+
+- 2d51628: Add word boundaries
+
 ## 0.0.8
 
 ### Patch Changes
