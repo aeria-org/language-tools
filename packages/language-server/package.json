@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "pnpm tsc --noEmit && pnpm esbuild src/index.ts --bundle --format=cjs --outdir=dist --platform=node --inject:../../shims/importMeta.js ",
+    "build": "pnpm tsc --noEmit && pnpm esbuild src/index.ts --bundle --format=cjs --outdir=dist --platform=node --inject:../../shims/importMeta.js && cp dist/index.js ../neovim/dist/language-server.js && cp dist/index.js ../vscode/dist/language-server.js",
     "prepublishOnly": "pnpm build"
   },
   "files": [
