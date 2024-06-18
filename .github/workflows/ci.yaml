@@ -23,6 +23,8 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
+      - name: Install binaries
+        run: apt install jq
       - name: Install dependencies
         run: pnpm install
 
