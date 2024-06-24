@@ -4,13 +4,17 @@
     "description": "Declare a new collection",
     "body": [
       "collection ${1:Name} {",
+      "\ticon \"file\"",
       "\tproperties {",
       "\t}",
       "\tfunctions {",
-      "\t\tget",
-      "\t\tgetAll",
-      "\t\tinsert",
-      "\t\tremove",
+      "\t\tget @expose",
+      "\t\tgetAll @expose",
+      "\t\tinsert @expose",
+      "\t\tremove @expose",
+      "\t}",
+      "\tpresets {",
+      "\t\tcrud",
       "\t}",
       "}"
     ]
