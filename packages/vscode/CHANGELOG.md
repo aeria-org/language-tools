@@ -1,5 +1,13 @@
 # @aeria-lang/vscode
 
+## 0.0.12
+
+### Patch Changes
+
+- f3b378c: Update grammar
+- Updated dependencies [f3b378c]
+  - @aeria-lang/language-server@0.0.4
+
 ## 0.0.11
 
 ### Patch Changes

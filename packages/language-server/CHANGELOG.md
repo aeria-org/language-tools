@@ -1,5 +1,11 @@
 # @aeria-lang/language-server
 
+## 0.0.4
+
+### Patch Changes
+
+- f3b378c: Update `aeria-lang`
+
 ## 0.0.3
 
 ### Patch Changes
