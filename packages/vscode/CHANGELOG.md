@@ -1,5 +1,13 @@
 # @aeria-lang/vscode
 
+## 0.0.11
+
+### Patch Changes
+
+- dfe7a8f: Upstream update
+- Updated dependencies [dfe7a8f]
+  - @aeria-lang/language-server@0.0.3
+
 ## 0.0.10
 
 ### Patch Changes
