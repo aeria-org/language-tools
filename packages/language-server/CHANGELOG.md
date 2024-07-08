@@ -1,5 +1,11 @@
 # @aeria-lang/language-server
 
+## 0.0.5
+
+### Patch Changes
+
+- a5bc236: Update syntax and language server
+
 ## 0.0.4
 
 ### Patch Changes
