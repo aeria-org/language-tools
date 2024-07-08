@@ -1,5 +1,13 @@
 # @aeria-lang/vscode
 
+## 0.0.13
+
+### Patch Changes
+
+- a5bc236: Update syntax and language server
+- Updated dependencies [a5bc236]
+  - @aeria-lang/language-server@0.0.5
+
 ## 0.0.12
 
 ### Patch Changes
