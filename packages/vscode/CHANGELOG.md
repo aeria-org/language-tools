@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.14
+
+### Patch Changes
+
+- f5d7f19: Add array syntax
+
 ## 0.0.13
 
 ### Patch Changes
