@@ -44,6 +44,24 @@
         }
       ]
     },
+    "array": {
+      "begin": "\\[",
+      "beginCaptures": {
+        "0": { "name": "punctuation.definition.array.begin.aeria" }
+      },
+      "end": "\\]",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.array.end.aeria" }
+      },
+      "name": "meta.structure.array.aeria",
+      "patterns": [
+        { "include": "#constant" },
+        {
+          "match": ",",
+          "name": "punctuation.separator.array.aeria"
+        }
+      ]
+    },
     "attribute": {
       "begin": "(@(\\w+))(\\()?",
       "beginCaptures": {
@@ -55,6 +73,7 @@
         "0": { "name": "punctuation.section.parens.end.aeria" }
       },
       "patterns": [
+        { "include": "#array" },
         { "include": "#constant" }
       ]
     },
