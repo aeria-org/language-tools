@@ -68,8 +68,8 @@ importers:
         specifier: ^20.14.10
         version: 20.14.10
       '@types/vscode':
-        specifier: ^1.91.0
-        version: 1.91.0
+        specifier: 1.56.0
+        version: 1.56.0
       '@vscode/vsce':
         specifier: ^2.29.0
         version: 2.29.0
@@ -457,8 +457,8 @@ packages:
   '@types/semver@7.5.8':
     resolution: {integrity: sha512-I8EUhyrgfLrcTkzV3TSsGyl1tSuPrEDzr0yd5m90UgNxQkyDXULk3b6MlQqTCpZpNtWe1K0hzclnZkTcLBe2UQ==}
 
-  '@types/vscode@1.91.0':
-    resolution: {integrity: sha512-PgPr+bUODjG3y+ozWUCyzttqR9EHny9sPAfJagddQjDwdtf66y2sDKJMnFZRuzBA2YtBGASqJGPil8VDUPvO6A==}
+  '@types/vscode@1.56.0':
+    resolution: {integrity: sha512-Q5VmQxOx+L1Y6lIJiGcJzwcyV3pQo/eiW8P+7sNLhFI16tJCwtua2DLjHRcpjbCLNVYpQM73kzfFo1Z0HyP9eQ==}
 
   '@vscode/vsce-sign-alpine-arm64@2.0.2':
     resolution: {integrity: sha512-E80YvqhtZCLUv3YAf9+tIbbqoinWLCO/B3j03yQPbjT3ZIHCliKZlsy1peNc4XNZ5uIb87Jn0HWx/ZbPXviuAQ==}
@@ -2357,7 +2357,7 @@ snapshots:
 
   '@types/semver@7.5.8': {}
 
-  '@types/vscode@1.91.0': {}
+  '@types/vscode@1.56.0': {}
 
   '@vscode/vsce-sign-alpine-arm64@2.0.2':
     optional: true
