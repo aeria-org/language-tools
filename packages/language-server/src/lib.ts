@@ -6,12 +6,10 @@ export const reportDiagnostics = async ({ document }: TextDocumentChangeEvent<Te
   const lang = await import('aeria-lang')
   const source = document.getText()
 
-  const resultEither = lang.compileSource({
+  const resultEither = lang.checkSource({
     filename: fileURLToPath(document.uri),
     source,
-    module: 'esnext',
   })
-
 
   if( lang.isLeft(resultEither) ) {
     const diagnostic = lang.unwrap(lang.unwrap(resultEither))

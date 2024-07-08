@@ -209,14 +209,27 @@
       "patterns": [
         { "include": "#quoted-string" }
       ]
-
+    },
+    "collection.modifiers": {
+      "begin": "\\b(owned)\\s+",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.aeria" }
+      },
+      "end": "$",
+      "patterns": [
+        { "include": "#constant" }
+      ]
     },
     "collection": {
-      "begin": "\\b(collection)\\s*(\\w+)\\s*(\\{)",
+      "begin": "\\b(collection)\\s*(\\w+)\\s+((extends)\\s+(\\w+)(\\.)(\\w+))?\\s*(\\{)",
       "beginCaptures": {
         "1": { "name": "storage.type.struct.aeria" },
         "2": { "name": "entity.name.type.model.aeria" },
-        "3": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+        "4": { "name": "keyword.other.aeria" },
+        "5": { "name": "entity.name.class.aeria" },
+        "6": { "name": "punctuation.accessor.aeria" },
+        "7": { "name": "entity.name.class.aeria" },
+        "8": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
       },
       "end": "\\}",
       "endCaptures": {
@@ -226,6 +239,7 @@
         { "include": "#comment" },
         { "include": "#properties" },
         { "include": "#collection.icon" },
+        { "include": "#collection.modifiers" },
         { "include": "#collection.keyed-list" },
         { "include": "#collection.functions" },
         { "include": "#collection.security" }
