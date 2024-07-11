@@ -87,13 +87,14 @@
       },
       "end": "$",
       "patterns": [
+        { "include": "#comment" },
         { "include": "#attribute" }
       ]
     },
     "properties.column.object.keyed-list": {
       "begin": "\\b(form|required|writable)\\s+(\\{)",
       "beginCaptures": {
-        "1": { "name": "keyword.other.aeria" },
+        "1": { "name": "variable.other.assignment.aeria" },
         "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
       },
       "end": "\\}",
@@ -103,7 +104,7 @@
       "patterns": [
         { "include": "#comment" },
         {
-          "name": "variable.other.assignment.aeria",
+          "name": "variable.other.aeria",
           "match": "(\\w+)"
         }
       ]
@@ -111,7 +112,7 @@
     "properties.column.object": {
       "begin": "(\\w+)\\s+(\\[\\])?(\\{)",
       "beginCaptures": {
-        "1": { "name": "variable.other.assignment.aeria" },
+        "1": { "name": "variable.other.aeria" },
         "2": { "name": "keyword.operator.list_type.aeria" },
         "4": { "name": "variable.language.relations.aeria" }
       },
@@ -163,7 +164,7 @@
     "collection.functions.column": {
       "begin": "(((\\w+)(\\?))|(\\w+))",
       "beginCaptures": {
-        "3": { "name": "variable.other.assignment.aeria" },
+        "3": { "name": "variable.other.aeria" },
         "4": { "name": "keyword.operator.optional.aeria" },
         "5": { "name": "variable.other.constant.aeria" }
       },
@@ -173,7 +174,7 @@
       ]
     },
     "collection.keyed-list": {
-      "begin": "\\b(indexes|form|filters|required|table|tableMeta|writable|presets)\\s+(\\{)",
+      "begin": "\\b(form|filters|immutable|indexes|presets|required|table|tableMeta|writable)\\s*(\\{)",
       "beginCaptures": {
         "1": { "name": "keyword.other.aeria" },
         "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
@@ -185,8 +186,139 @@
       "patterns": [
         { "include": "#comment" },
         {
-          "name": "variable.other.assignment.aeria",
+          "name": "variable.other.aeria",
           "match": "(\\w+)"
+        },
+        { "include": "#attribute" }
+      ]
+    },
+    "collection.form-layout": {
+      "begin": "\\b(formLayout)\\s*(\\{)",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.aeria" },
+        "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        {
+          "begin": "\\b(fields)\\s*(\\{)",
+          "beginCaptures": {
+            "1": { "name": "keyword.other.aeria" },
+            "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+          },
+          "end": "\\}",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            {
+              "name": "variable.other.aeria",
+              "match": "(\\w+)"
+            },
+            { "include": "#attribute" }
+          ]
+        }
+      ]
+    },
+    "collection.layout": {
+      "begin": "\\b(layout)\\s*(\\{)",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.aeria" },
+        "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        {
+          "begin": "\\b(name)\\s+",
+          "beginCaptures": {
+            "1": { "name": "keyword.other.aeria" }
+          },
+          "end": "$",
+          "patterns": [
+            { "include": "#quoted-string" }
+          ]
+        },
+        {
+          "begin": "\\b(options)\\s*(\\{)",
+          "beginCaptures": {
+            "1": { "name": "keyword.other.aeria" },
+            "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+          },
+          "end": "\\}",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            {
+              "match": "\\b(title|picture|badge|badgeFunction|information|active)\\s+(\\w+)",
+              "captures": {
+                "1": { "name": "keyword.other.aeria" },
+                "2": { "name": "variable.other.aeria" }
+              }
+            },
+            {
+              "begin": "\\b(translateBadge)\\s+",
+              "beginCaptures": {
+                "1": { "name": "keyword.other.aeria" }
+              },
+              "end": "$",
+              "patterns": [
+                { "include": "#constant" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "collection.search": {
+      "begin": "\\b(search)\\s*(\\{)",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.aeria" },
+        "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        {
+          "begin": "\\b(placeholder)\\s+",
+          "beginCaptures": {
+            "1": { "name": "keyword.other.aeria" }
+          },
+          "end": "$",
+          "patterns": [
+            { "include": "#quoted-string" }
+          ]
+        },
+        {
+          "begin": "\\b(indexes)\\s*(\\{)",
+          "beginCaptures": {
+            "1": { "name": "keyword.other.aeria" },
+            "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+          },
+          "end": "\\}",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            {
+              "name": "variable.other.aeria",
+              "match": "(\\w+)"
+            }
+          ]
         }
       ]
     },
@@ -260,6 +392,9 @@
         { "include": "#collection.icon" },
         { "include": "#collection.modifiers" },
         { "include": "#collection.keyed-list" },
+        { "include": "#collection.form-layout" },
+        { "include": "#collection.layout" },
+        { "include": "#collection.search" },
         { "include": "#collection.functions" },
         { "include": "#collection.security" }
       ]
