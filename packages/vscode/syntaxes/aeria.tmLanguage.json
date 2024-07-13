@@ -107,7 +107,7 @@
       ]
     },
     "properties.column.plain": {
-      "begin": "(\\w+)\\s+(\\[\\])?((str|num|int|float|bool|enum|const)|(\\w+))\\b",
+      "begin": "(\\w+)\\s+(\\[\\])?((str|num|int|bool|enum|const)|(\\w+))\\b",
       "beginCaptures": {
         "1": { "name": "variable.other.assignment.aeria" },
         "2": { "name": "keyword.operator.list_type.aeria" },
