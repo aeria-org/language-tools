@@ -123,7 +123,7 @@
     "properties.column.object.keyedList": {
       "begin": "\\b(form|required|writable)\\s+(\\{)",
       "beginCaptures": {
-        "1": { "name": "variable.other.assignment.aeria" },
+        "1": { "name": "keyword.other.aeria" },
         "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
       },
       "end": "\\}",
@@ -174,6 +174,58 @@
       "patterns": [
         { "include": "#comment" },
         { "include": "#properties.column" }
+      ]
+    },
+    "contract": {
+      "begin": "\\b(contract)\\s*(\\w+)\\s*(\\{)",
+      "beginCaptures": {
+        "1": { "name": "storage.type.struct.aeria" },
+        "2": { "name": "entity.name.type.model.aeria" },
+        "3": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        {
+          "begin": "\\b(payload|query|response)\\s*(\\{)",
+          "beginCaptures": {
+            "1": { "name": "keyword.other.aeria" },
+            "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+          },
+          "end": "\\}",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+          },
+          "patterns": [
+            { "include": "#comment" },
+            { "include": "#properties" },
+            { "include": "#properties.column.object.keyedList" }
+          ]
+        },
+        {
+          "begin": "\\b(payload|query|response)\\s*(\\[)",
+          "beginCaptures": {
+            "1": { "name": "keyword.other.aeria" },
+            "2": { "name": "punctuation.definition.array.begin.aeria" }
+          },
+          "end": "\\]",
+          "endCaptures": {
+            "0": { "name": "punctuation.definition.array.end.aeria" }
+          },
+          "name": "meta.structure.array.aeria",
+          "patterns": [
+            { "include": "#comment" },
+            { "include": "#properties" },
+            { "include": "#properties.column.object.keyedList" },
+            {
+              "match": ",",
+              "name": "punctuation.separator.array.aeria"
+            }
+          ]
+        }
       ]
     },
     "collection.functions.column.attribute": {
@@ -575,6 +627,7 @@
     },
     "declaration": {
       "patterns": [
+        { "include": "#contract" },
         { "include": "#collection" }
       ]
     }
