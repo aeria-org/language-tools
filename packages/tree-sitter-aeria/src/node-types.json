@@ -35,7 +35,7 @@
           "named": true
         },
         {
-          "type": "number",
+          "type": "constant",
           "named": true
         },
         {
@@ -69,15 +69,7 @@
           "named": true
         },
         {
-          "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "number",
-          "named": true
-        },
-        {
-          "type": "quoted_string",
+          "type": "constant",
           "named": true
         }
       ]
@@ -127,11 +119,23 @@
           "named": true
         },
         {
-          "type": "collection_icon",
+          "type": "collection_keyed_list",
           "named": true
         },
         {
-          "type": "collection_keyed_list",
+          "type": "collection_layout",
+          "named": true
+        },
+        {
+          "type": "collection_modifiers",
+          "named": true
+        },
+        {
+          "type": "collection_search",
+          "named": true
+        },
+        {
+          "type": "collection_security",
           "named": true
         },
         {
@@ -161,22 +165,6 @@
     }
   },
   {
-    "type": "collection_icon",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "quoted_string",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
     "type": "collection_keyed_list",
     "named": true,
     "fields": {},
@@ -196,9 +184,119 @@
     }
   },
   {
+    "type": "collection_layout",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "quoted_string",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "collection_modifiers",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "constant",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "collection_name",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "collection_search",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "quoted_string",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "collection_security",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "collection_security_logging",
+          "named": true
+        },
+        {
+          "type": "collection_security_rate_limiting",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "collection_security_logging",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "quoted_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "collection_security_rate_limiting",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "quoted_string",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "comment",
@@ -240,6 +338,29 @@
     }
   },
   {
+    "type": "constant",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "quoted_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "declaration",
     "named": true,
     "fields": {},
@@ -249,25 +370,6 @@
       "types": [
         {
           "type": "collection",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "immutable_block",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "boolean",
-          "named": true
-        },
-        {
-          "type": "word",
           "named": true
         }
       ]
@@ -311,10 +413,35 @@
   {
     "type": "properties_column",
     "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "word",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "collection_name",
+            "named": true
+          },
+          {
+            "type": "properties_column_type",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "array_identifier",
@@ -325,19 +452,7 @@
           "named": true
         },
         {
-          "type": "collection_name",
-          "named": true
-        },
-        {
-          "type": "properties_column_type",
-          "named": true
-        },
-        {
           "type": "schema_properties",
-          "named": true
-        },
-        {
-          "type": "word",
           "named": true
         }
       ]
@@ -349,7 +464,7 @@
     "fields": {}
   },
   {
-    "type": "required_block",
+    "type": "schema_properties",
     "named": true,
     "fields": {},
     "children": {
@@ -361,47 +476,9 @@
           "named": true
         },
         {
-          "type": "word",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "schema_properties",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "immutable_block",
-          "named": true
-        },
-        {
           "type": "properties_block",
           "named": true
         },
-        {
-          "type": "required_block",
-          "named": true
-        },
-        {
-          "type": "writable_block",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "writable_block",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
         {
           "type": "word",
           "named": true
@@ -470,8 +547,16 @@
     "named": false
   },
   {
+    "type": "active",
+    "named": false
+  },
+  {
     "type": "array_identifier",
     "named": true
+  },
+  {
+    "type": "badge",
+    "named": false
   },
   {
     "type": "bool",
@@ -526,7 +611,23 @@
     "named": false
   },
   {
+    "type": "information",
+    "named": false
+  },
+  {
     "type": "int",
+    "named": false
+  },
+  {
+    "type": "layout",
+    "named": false
+  },
+  {
+    "type": "logging",
+    "named": false
+  },
+  {
+    "type": "name",
     "named": false
   },
   {
@@ -536,6 +637,22 @@
   {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "options",
+    "named": false
+  },
+  {
+    "type": "owned",
+    "named": false
+  },
+  {
+    "type": "picture",
+    "named": false
+  },
+  {
+    "type": "placeholder",
+    "named": false
   },
   {
     "type": "presets",
@@ -550,11 +667,27 @@
     "named": true
   },
   {
+    "type": "rateLimiting",
+    "named": false
+  },
+  {
     "type": "required",
     "named": false
   },
   {
+    "type": "search",
+    "named": false
+  },
+  {
+    "type": "security",
+    "named": false
+  },
+  {
     "type": "str",
+    "named": false
+  },
+  {
+    "type": "strategy",
     "named": false
   },
   {
@@ -563,6 +696,18 @@
   },
   {
     "type": "tableMeta",
+    "named": false
+  },
+  {
+    "type": "timestamps",
+    "named": false
+  },
+  {
+    "type": "title",
+    "named": false
+  },
+  {
+    "type": "translateBadge",
     "named": false
   },
   {

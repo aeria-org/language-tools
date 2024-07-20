@@ -579,21 +579,10 @@
         }
       ]
     },
-    "collection.icon": {
-      "patterns": [
-        { "include": "#quotedString" },
-        {
-          "match": "\\b(icon)\\s+",
-          "captures": {
-            "1": { "name": "keyword.other.aeria" }
-          }
-        }
-      ]
-    },
     "collection.modifiers": {
       "patterns": [
         {
-          "match": "\\b(owned|timestamps)\\s+",
+          "match": "\\b(owned|timestamps|icon)\\s+",
           "captures": {
             "1": { "name": "keyword.other.aeria" }
           }
@@ -619,7 +608,6 @@
       "patterns": [
         { "include": "#comment" },
         { "include": "#properties" },
-        { "include": "#collection.icon" },
         { "include": "#collection.modifiers" },
         { "include": "#collection.keyedList" },
         { "include": "#collection.filtersPresets" },

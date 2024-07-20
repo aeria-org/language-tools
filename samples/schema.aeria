@@ -5,33 +5,20 @@ collection Pet {
   }
   properties {
     name str
-    type enum @values(["dog", "cat"])
-    picture File @accept(["image/*"])
+    details []{
+      properties {
+        picture File @accept(["image/*"])
+      }
+    }
   }
   functions {
-    get @expose
-    getAll @expose
-    insert @expose
-    upload @expose
+    get @expose(true)
   }
-  presets {
-    crud
-  }
-}
-
-collection Person {
-  icon "person"
-  properties {
-    name str
-    pets []Pet
-  }
-  functions {
-    get @expose
-    getAll @expose
-    insert @expose
-  }
-  presets {
-    crud
+  layout {
+    name "tabular"
+    options {
+      title title
+    }
   }
 }
 
