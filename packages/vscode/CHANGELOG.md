@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.18
+
+### Patch Changes
+
+- 8fb867e: Update grammar
+
 ## 0.0.17
 
 ### Patch Changes
