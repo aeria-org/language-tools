@@ -1,23 +1,25 @@
 collection Pet {
   icon "dog"
-  indexes {
-    name
-  }
+    indexes {
+      name
+    }
   properties {
     name str
-    details []{
-      properties {
-        picture File @accept(["image/*"])
+      details []{
+        properties {
+          picture File @accept(["image/*"])
+        }
       }
-    }
   }
   functions {
     get @expose(true)
   }
-  layout {
-    name "tabular"
-    options {
-      title title
+  filtersPresets {
+    active {
+      label "Active"
+        filters {
+          active true
+        }
     }
   }
 }

@@ -8,15 +8,19 @@
       "required": false,
       "types": [
         {
-          "type": "boolean",
+          "type": "array",
           "named": true
         },
         {
-          "type": "number",
+          "type": "constant",
           "named": true
         },
         {
-          "type": "quoted_string",
+          "type": "dictionary",
+          "named": true
+        },
+        {
+          "type": "variable_name",
           "named": true
         }
       ]
@@ -54,7 +58,7 @@
         "required": true,
         "types": [
           {
-            "type": "word",
+            "type": "variable_name",
             "named": true
           }
         ]
@@ -115,6 +119,10 @@
       "required": false,
       "types": [
         {
+          "type": "collection_filters_presets",
+          "named": true
+        },
+        {
           "type": "collection_functions",
           "named": true
         },
@@ -146,6 +154,29 @@
     }
   },
   {
+    "type": "collection_filters_presets",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "dictionary",
+          "named": true
+        },
+        {
+          "type": "quoted_string",
+          "named": true
+        },
+        {
+          "type": "variable_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "collection_functions",
     "named": true,
     "fields": {},
@@ -158,7 +189,7 @@
           "named": true
         },
         {
-          "type": "word",
+          "type": "function_name",
           "named": true
         }
       ]
@@ -177,7 +208,7 @@
           "named": true
         },
         {
-          "type": "word",
+          "type": "variable_name",
           "named": true
         }
       ]
@@ -200,7 +231,7 @@
           "named": true
         },
         {
-          "type": "word",
+          "type": "variable_name",
           "named": true
         }
       ]
@@ -239,7 +270,7 @@
           "named": true
         },
         {
-          "type": "word",
+          "type": "variable_name",
           "named": true
         }
       ]
@@ -262,7 +293,7 @@
           "named": true
         },
         {
-          "type": "word",
+          "type": "function_name",
           "named": true
         }
       ]
@@ -376,6 +407,42 @@
     }
   },
   {
+    "type": "dictionary",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "constant",
+          "named": true
+        },
+        {
+          "type": "dictionary",
+          "named": true
+        },
+        {
+          "type": "variable_name",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "function_name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "logical_concatenator_operator",
     "named": true,
     "fields": {}
@@ -419,7 +486,7 @@
         "required": true,
         "types": [
           {
-            "type": "word",
+            "type": "variable_name",
             "named": true
           }
         ]
@@ -480,11 +547,16 @@
           "named": true
         },
         {
-          "type": "word",
+          "type": "variable_name",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "variable_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "!=",
@@ -587,7 +659,15 @@
     "named": false
   },
   {
+    "type": "filtersPresets",
+    "named": false
+  },
+  {
     "type": "form",
+    "named": false
+  },
+  {
+    "type": "function_name",
     "named": false
   },
   {
@@ -616,6 +696,10 @@
   },
   {
     "type": "int",
+    "named": false
+  },
+  {
+    "type": "label",
     "named": false
   },
   {
@@ -712,6 +796,10 @@
   },
   {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "variable_name",
     "named": false
   },
   {

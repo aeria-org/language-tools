@@ -5,7 +5,6 @@ const PREC = {
 const $block = (rule) => seq('{', rule, '}')
 const $commaSep1 = (rule) => seq(rule, repeat(seq(',', rule)))
 const $commaSep = (rule) => optional($commaSep1(rule))
-const $array = (rule) => seq('[', $commaSep(rule), ']')
 
 module.exports = grammar({
   name: 'aeria',
@@ -20,6 +19,7 @@ module.exports = grammar({
     comment: $ => prec(PREC.comment, token(
       seq('//', /.*/),
     )),
+    word: $ => /[a-zA-Z]([a-zA-Z0-9]|_)+/,
     number: $ => /[0-9]+/,
     boolean: $ => choice('true', 'false'),
     quoted_string: $ => token(seq('"', /[^"\n]+/, '"')),
@@ -29,16 +29,36 @@ module.exports = grammar({
       $.quoted_string,
     ),
     array_identifier: $ => '[]',
-    array: $ => $array(
-      choice(
-        $.number,
-        $.quoted_string,
-        $.boolean,
+    array: $ => seq(
+      '[',
+      $commaSep(
+        choice(
+          $.array,
+          $.constant,
+          $.dictionary,
+          $.variable_name,
+        ),
       ),
+      ']',
     ),
-    string_array: $ => $array($.quoted_string),
-    word: $ => /[a-zA-Z]([a-zA-Z0-9]|_)+/,
+    dictionary: $ => seq(
+      '{',
+      repeat(
+        seq(
+          $.word,
+          choice(
+            $.array,
+            $.constant,
+            $.dictionary,
+            $.variable_name,
+          ),
+        ),
+      ),
+      '}',
+    ),
     collection_name: $ => alias($.word, 'collection_name'),
+    variable_name: $ => alias($.word, 'variable_name'),
+    function_name: $ => alias($.word, 'function_name'),
     binary_operator: $ => choice(
       '==',
       '!=',
@@ -53,7 +73,7 @@ module.exports = grammar({
       '||',
     ),
     binary_operation: $ => seq(
-      field('property_name', $.word),
+      field('property_name', $.variable_name),
       $.binary_operator,
       $.constant,
     ),
@@ -88,21 +108,6 @@ module.exports = grammar({
         ')',
       ),
     ),
-    required_block: $ => $block(
-      repeat(
-        seq(
-          $.word,
-          optional($.condition),
-        ),
-      ),
-    ),
-    writable_block: $ => repeat1($.word),
-    immutable_block: $ => choice(
-      $.boolean,
-      $block(
-        repeat($.word),
-      ),
-    ),
     schema_properties: $ => repeat1(
       choice(
         seq('properties', $.properties_block),
@@ -116,7 +121,7 @@ module.exports = grammar({
           $block(
             repeat(
               seq(
-                $.word,
+                $.variable_name,
                 repeat($.condition),
               ),
             ),
@@ -133,7 +138,7 @@ module.exports = grammar({
       'const',
     ),
     properties_column: $ => seq(
-      field('name', $.word),
+      field('name', $.variable_name),
       optional($.array_identifier),
       choice(
         field('type', $.properties_column_type),
@@ -160,18 +165,81 @@ module.exports = grammar({
       $block(
         repeat(
           seq(
-            $.word,
+            $.variable_name,
             repeat($.attribute),
           ),
         ),
       ),
+    ),
+    collection_filters_presets: $ => seq(
+      'filtersPresets',
+      $block(
+        repeat(
+          seq(
+            $.variable_name,
+            $block(
+              repeat(
+                choice(
+                  seq('label', $.quoted_string),
+                  seq('filters', $.dictionary),
+                ),
+              ),
+            ),
+          )
+        ),
+      ),
+    ),
+    collection_layout: $ => seq(
+      'layout',
+      $block(
+        repeat(
+          choice(
+            seq('name', $.quoted_string),
+            seq('options', $block(
+              repeat1(
+                choice(
+                  seq('title', $.variable_name),
+                  seq('picture', $.variable_name),
+                  seq('badge', $.variable_name),
+                  seq('information', $.variable_name),
+                  seq('active', $.variable_name),
+                  seq('translateBadge', $.boolean),
+                ),
+              ),
+            )),
+          ),
+        ),
+      ),
+    ),
+    collection_search: $ => seq(
+      'search',
+      $block(
+        repeat(
+          choice(
+            seq('placeholder', $.quoted_string),
+            seq('indexes', $block(
+              repeat1(
+                $.variable_name,
+              ),
+            )),
+          ),
+        ),
+      ),
+    ),
+    collection_modifiers: $ => seq(
+      choice(
+        'owned',
+        'timestamps',
+        'icon',
+      ),
+      $.constant,
     ),
     collection_functions: $ => seq(
       'functions',
       $block(
         repeat(
           seq(
-            $.word,
+            $.function_name,
             optional(token.immediate('?')),
             repeat($.attribute),
           ),
@@ -209,7 +277,7 @@ module.exports = grammar({
                 repeat(
                   choice(
                     seq(
-                      $.word,
+                      $.function_name,
                       $block(
                         repeat(
                           choice(
@@ -227,64 +295,20 @@ module.exports = grammar({
         ),
       ),
     ),
-    collection_search: $ => seq(
-      'search',
-      $block(
-        repeat(
-          choice(
-            seq('placeholder', $.quoted_string),
-            seq('indexes', $block(
-              repeat1(
-                $.word,
-              ),
-            )),
-          ),
-        ),
-      ),
-    ),
-    collection_layout: $ => seq(
-      'layout',
-      $block(
-        repeat(
-          choice(
-            seq('name', $.quoted_string),
-            seq('options', $block(
-              repeat1(
-                choice(
-                  seq('title', $.word),
-                  seq('picture', $.word),
-                  seq('badge', $.word),
-                  seq('information', $.word),
-                  seq('active', $.word),
-                  seq('translateBadge', $.boolean),
-                ),
-              ),
-            )),
-          ),
-        ),
-      ),
-    ),
-    collection_modifiers: $ => seq(
-      choice(
-        'owned',
-        'timestamps',
-        'icon',
-      ),
-      $.constant,
-    ),
     collection: $ => seq(
       field('type', 'collection'),
       field('name', $.collection_name),
       $block(
         repeat(
           choice(
+            seq('properties', $.properties_block),
             $.collection_modifiers,
             $.collection_keyed_list,
+            $.collection_filters_presets,
+            $.collection_layout,
+            $.collection_search,
             $.collection_functions,
             $.collection_security,
-            $.collection_search,
-            $.collection_layout,
-            seq('properties', $.properties_block),
           ),
         ),
       ),
