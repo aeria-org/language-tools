@@ -1,5 +1,51 @@
 [
   {
+    "type": "array",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "quoted_string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "attribute",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "binary_operation",
     "named": true,
     "fields": {
@@ -48,60 +94,111 @@
     "fields": {}
   },
   {
-    "type": "builtin_function",
+    "type": "collection",
     "named": true,
-    "fields": {}
-  },
-  {
-    "type": "collection_block",
-    "named": true,
-    "fields": {},
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "collection_name",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "collection",
+            "named": false
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "functions_block",
+          "type": "collection_functions",
           "named": true
         },
         {
-          "type": "functions_keyword",
+          "type": "collection_icon",
           "named": true
         },
         {
-          "type": "immutable_block",
-          "named": true
-        },
-        {
-          "type": "immutable_keyword",
+          "type": "collection_keyed_list",
           "named": true
         },
         {
           "type": "properties_block",
           "named": true
-        },
+        }
+      ]
+    }
+  },
+  {
+    "type": "collection_functions",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
         {
-          "type": "properties_keyword",
+          "type": "attribute",
           "named": true
         },
         {
-          "type": "required_keyword",
-          "named": true
-        },
-        {
-          "type": "toplevel_required_block",
-          "named": true
-        },
-        {
-          "type": "writable_block",
-          "named": true
-        },
-        {
-          "type": "writable_keyword",
+          "type": "word",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "collection_icon",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "quoted_string",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "collection_keyed_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        },
+        {
+          "type": "word",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "collection_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "comment",
@@ -145,53 +242,13 @@
   {
     "type": "declaration",
     "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "capitalized_word",
-            "named": true
-          }
-        ]
-      },
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "collection_keyword",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "collection_block",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "functions_block",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "builtin_function",
-          "named": true
-        },
-        {
-          "type": "word",
+          "type": "collection",
           "named": true
         }
       ]
@@ -245,43 +302,16 @@
       "required": false,
       "types": [
         {
-          "type": "property_column",
+          "type": "properties_column",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "property_bool",
+    "type": "properties_column",
     "named": true,
-    "fields": {
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "property_bool_type",
-            "named": true
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "property_column",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "word",
-            "named": true
-          }
-        ]
-      }
-    },
+    "fields": {},
     "children": {
       "multiple": true,
       "required": true,
@@ -291,264 +321,32 @@
           "named": true
         },
         {
-          "type": "property_bool",
+          "type": "attribute",
           "named": true
         },
         {
-          "type": "property_enum",
+          "type": "collection_name",
           "named": true
         },
         {
-          "type": "property_file",
+          "type": "properties_column_type",
           "named": true
         },
-        {
-          "type": "property_num",
-          "named": true
-        },
-        {
-          "type": "property_obj",
-          "named": true
-        },
-        {
-          "type": "property_ref",
-          "named": true
-        },
-        {
-          "type": "property_str",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "property_enum",
-    "named": true,
-    "fields": {
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "property_enum_type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "property_enum_attribute",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "property_enum_attribute",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string_array",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "property_file",
-    "named": true,
-    "fields": {
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "property_file_type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "property_file_attribute",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "property_file_attribute",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "quoted_string",
-          "named": true
-        },
-        {
-          "type": "string_array",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "property_num",
-    "named": true,
-    "fields": {
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "property_num_type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "property_num_attribute",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "property_num_attribute",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "number",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "property_num_type",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "property_obj",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
         {
           "type": "schema_properties",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "property_ref",
-    "named": true,
-    "fields": {
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "capitalized_word",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
+        },
         {
-          "type": "property_ref_attribute",
+          "type": "word",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "property_ref_attribute",
+    "type": "properties_column_type",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "string_array",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "property_str",
-    "named": true,
-    "fields": {
-      "type": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "property_str_type",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "property_str_attribute",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "property_str_attribute",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "number",
-          "named": true
-        }
-      ]
-    }
+    "fields": {}
   },
   {
     "type": "required_block",
@@ -556,8 +354,12 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
+        {
+          "type": "condition",
+          "named": true
+        },
         {
           "type": "word",
           "named": true
@@ -578,15 +380,7 @@
           "named": true
         },
         {
-          "type": "immutable_keyword",
-          "named": true
-        },
-        {
           "type": "properties_block",
-          "named": true
-        },
-        {
-          "type": "properties_keyword",
           "named": true
         },
         {
@@ -594,49 +388,7 @@
           "named": true
         },
         {
-          "type": "required_keyword",
-          "named": true
-        },
-        {
           "type": "writable_block",
-          "named": true
-        },
-        {
-          "type": "writable_keyword",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "string_array",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "quoted_string",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "toplevel_required_block",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
-        {
-          "type": "condition",
-          "named": true
-        },
-        {
-          "type": "word",
           "named": true
         }
       ]
@@ -698,43 +450,15 @@
     "named": false
   },
   {
-    "type": "@accept",
+    "type": "?",
+    "named": false
+  },
+  {
+    "type": "@",
     "named": false
   },
   {
     "type": "@condition",
-    "named": false
-  },
-  {
-    "type": "@exclusiveMaximum",
-    "named": false
-  },
-  {
-    "type": "@exclusiveMinimum",
-    "named": false
-  },
-  {
-    "type": "@indexes",
-    "named": false
-  },
-  {
-    "type": "@maxLength",
-    "named": false
-  },
-  {
-    "type": "@maximum",
-    "named": false
-  },
-  {
-    "type": "@minLength",
-    "named": false
-  },
-  {
-    "type": "@minimum",
-    "named": false
-  },
-  {
-    "type": "@options",
     "named": false
   },
   {
@@ -750,39 +474,55 @@
     "named": true
   },
   {
-    "type": "capitalized_word",
-    "named": true
+    "type": "bool",
+    "named": false
   },
   {
-    "type": "collection_keyword",
-    "named": true
+    "type": "collection",
+    "named": false
+  },
+  {
+    "type": "collection_name",
+    "named": false
+  },
+  {
+    "type": "const",
+    "named": false
+  },
+  {
+    "type": "enum",
+    "named": false
   },
   {
     "type": "false",
     "named": false
   },
   {
-    "type": "functions_keyword",
-    "named": true
-  },
-  {
-    "type": "get",
+    "type": "filters",
     "named": false
   },
   {
-    "type": "getAll",
+    "type": "form",
     "named": false
   },
   {
-    "type": "immutable_keyword",
-    "named": true
+    "type": "functions",
+    "named": false
+  },
+  {
+    "type": "icon",
+    "named": false
+  },
+  {
+    "type": "immutable",
+    "named": false
   },
   {
     "type": "in",
     "named": false
   },
   {
-    "type": "insert",
+    "type": "indexes",
     "named": false
   },
   {
@@ -798,51 +538,35 @@
     "named": true
   },
   {
-    "type": "properties_keyword",
-    "named": true
+    "type": "presets",
+    "named": false
   },
   {
-    "type": "property_bool_type",
-    "named": true
-  },
-  {
-    "type": "property_enum_type",
-    "named": true
-  },
-  {
-    "type": "property_file_type",
-    "named": true
-  },
-  {
-    "type": "property_str_type",
-    "named": true
+    "type": "properties",
+    "named": false
   },
   {
     "type": "quoted_string",
     "named": true
   },
   {
-    "type": "remove",
+    "type": "required",
     "named": false
   },
   {
-    "type": "removeAll",
+    "type": "str",
     "named": false
   },
   {
-    "type": "removeFile",
+    "type": "table",
     "named": false
   },
   {
-    "type": "required_keyword",
-    "named": true
+    "type": "tableMeta",
+    "named": false
   },
   {
     "type": "true",
-    "named": false
-  },
-  {
-    "type": "upload",
     "named": false
   },
   {
@@ -850,8 +574,8 @@
     "named": true
   },
   {
-    "type": "writable_keyword",
-    "named": true
+    "type": "writable",
+    "named": false
   },
   {
     "type": "{",
