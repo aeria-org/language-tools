@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.19
+
+### Patch Changes
+
+- ffabe12: Allow multiline attributes
+
 ## 0.0.18
 
 ### Patch Changes
