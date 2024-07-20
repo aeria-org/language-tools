@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.20
+
+### Patch Changes
+
+- 746c14b: Fix `@expose` attribute
+
 ## 0.0.19
 
 ### Patch Changes
