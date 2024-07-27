@@ -31,7 +31,7 @@
         }
       ]
     },
-    "variableName": {
+    "identifier": {
       "name": "variable.other.aeria",
       "match": "(\\w+)"
     },
@@ -61,7 +61,7 @@
       "patterns": [
         { "include": "#comment" },
         { "include": "#array" },
-        { "include": "#variableName" },
+        { "include": "#identifier" },
         { "include": "#constant" },
         { "include": "#dictionary" },
         {
@@ -108,7 +108,7 @@
         "1": { "name": "punctuation.section.parens.end.aeria" }
       },
       "patterns": [
-        { "include": "#variableName" },
+        { "include": "#identifier" },
         { "include": "#array" },
         { "include": "#constant" }
       ]

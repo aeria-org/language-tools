@@ -10,6 +10,7 @@
     "prebuildify": "prebuildify --napi --strip",
     "build": "tree-sitter generate && tree-sitter build",
     "ci:build": "tree-sitter generate",
+    "parse": "tree-sitter parse ../../samples/schema.aeria",
     "highlight": "tree-sitter highlight ../../samples/schema.aeria"
   },
   "keywords": [],

@@ -28,7 +28,7 @@ module.exports = grammar({
       $.boolean,
       $.quoted_string,
     ),
-    array_identifier: $ => '[]',
+    array_operator: $ => '[]',
     array: $ => seq(
       '[',
       $commaSep(
@@ -36,7 +36,7 @@ module.exports = grammar({
           $.array,
           $.constant,
           $.dictionary,
-          $.variable_name,
+          $.identifier,
         ),
       ),
       ']',
@@ -50,14 +50,15 @@ module.exports = grammar({
             $.array,
             $.constant,
             $.dictionary,
-            $.variable_name,
+            $.identifier,
           ),
         ),
       ),
       '}',
     ),
+    identifier: $ => alias($.word, 'identifier'),
     collection_name: $ => alias($.word, 'collection_name'),
-    variable_name: $ => alias($.word, 'variable_name'),
+    module_name: $ => alias($.word, 'module_name'),
     function_name: $ => alias($.word, 'function_name'),
     binary_operator: $ => choice(
       '==',
@@ -73,7 +74,7 @@ module.exports = grammar({
       '||',
     ),
     binary_operation: $ => seq(
-      field('property_name', $.variable_name),
+      field('property_name', $.identifier),
       $.binary_operator,
       $.constant,
     ),
@@ -121,7 +122,7 @@ module.exports = grammar({
           $block(
             repeat(
               seq(
-                $.variable_name,
+                $.identifier,
                 repeat($.condition),
               ),
             ),
@@ -138,8 +139,8 @@ module.exports = grammar({
       'const',
     ),
     properties_column: $ => seq(
-      field('name', $.variable_name),
-      optional($.array_identifier),
+      field('name', $.identifier),
+      optional($.array_operator),
       choice(
         field('type', $.properties_column_type),
         field('type', $.collection_name),
@@ -165,7 +166,7 @@ module.exports = grammar({
       $block(
         repeat(
           seq(
-            $.variable_name,
+            $.identifier,
             repeat($.attribute),
           ),
         ),
@@ -176,7 +177,7 @@ module.exports = grammar({
       $block(
         repeat(
           seq(
-            $.variable_name,
+            $.identifier,
             $block(
               repeat(
                 choice(
@@ -198,11 +199,11 @@ module.exports = grammar({
             seq('options', $block(
               repeat1(
                 choice(
-                  seq('title', $.variable_name),
-                  seq('picture', $.variable_name),
-                  seq('badge', $.variable_name),
-                  seq('information', $.variable_name),
-                  seq('active', $.variable_name),
+                  seq('title', $.identifier),
+                  seq('picture', $.identifier),
+                  seq('badge', $.identifier),
+                  seq('information', $.identifier),
+                  seq('active', $.identifier),
                   seq('translateBadge', $.boolean),
                 ),
               ),
@@ -219,7 +220,7 @@ module.exports = grammar({
             seq('placeholder', $.quoted_string),
             seq('indexes', $block(
               repeat1(
-                $.variable_name,
+                $.identifier,
               ),
             )),
           ),
@@ -298,6 +299,13 @@ module.exports = grammar({
     collection: $ => seq(
       field('type', 'collection'),
       field('name', $.collection_name),
+      optional(
+        seq(
+          'extends',
+          field('module', $.module_name), token.immediate('.'),
+          field('symbol', $.collection_name),
+        ),
+      ),
       $block(
         repeat(
           choice(

@@ -1,3 +1,5 @@
+collection File extends aeria.file {}
+
 collection Pet {
   icon "dog"
     indexes {

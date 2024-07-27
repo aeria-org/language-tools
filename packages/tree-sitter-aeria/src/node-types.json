@@ -20,7 +20,7 @@
           "named": true
         },
         {
-          "type": "variable_name",
+          "type": "identifier",
           "named": true
         }
       ]
@@ -58,7 +58,7 @@
         "required": true,
         "types": [
           {
-            "type": "variable_name",
+            "type": "identifier",
             "named": true
           }
         ]
@@ -93,9 +93,29 @@
     "type": "collection",
     "named": true,
     "fields": {
+      "module": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "module_name",
+            "named": true
+          }
+        ]
+      },
       "name": {
         "multiple": false,
         "required": true,
+        "types": [
+          {
+            "type": "collection_name",
+            "named": true
+          }
+        ]
+      },
+      "symbol": {
+        "multiple": false,
+        "required": false,
         "types": [
           {
             "type": "collection_name",
@@ -166,11 +186,11 @@
           "named": true
         },
         {
-          "type": "quoted_string",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "variable_name",
+          "type": "quoted_string",
           "named": true
         }
       ]
@@ -208,7 +228,7 @@
           "named": true
         },
         {
-          "type": "variable_name",
+          "type": "identifier",
           "named": true
         }
       ]
@@ -227,11 +247,11 @@
           "named": true
         },
         {
-          "type": "quoted_string",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "variable_name",
+          "type": "quoted_string",
           "named": true
         }
       ]
@@ -266,11 +286,11 @@
       "required": false,
       "types": [
         {
-          "type": "quoted_string",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "variable_name",
+          "type": "quoted_string",
           "named": true
         }
       ]
@@ -427,7 +447,7 @@
           "named": true
         },
         {
-          "type": "variable_name",
+          "type": "identifier",
           "named": true
         },
         {
@@ -443,7 +463,17 @@
     "fields": {}
   },
   {
+    "type": "identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "logical_concatenator_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "module_name",
     "named": true,
     "fields": {}
   },
@@ -486,7 +516,7 @@
         "required": true,
         "types": [
           {
-            "type": "variable_name",
+            "type": "identifier",
             "named": true
           }
         ]
@@ -511,7 +541,7 @@
       "required": false,
       "types": [
         {
-          "type": "array_identifier",
+          "type": "array_operator",
           "named": true
         },
         {
@@ -543,20 +573,15 @@
           "named": true
         },
         {
-          "type": "properties_block",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "variable_name",
+          "type": "properties_block",
           "named": true
         }
       ]
     }
-  },
-  {
-    "type": "variable_name",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "!=",
@@ -576,6 +601,10 @@
   },
   {
     "type": ",",
+    "named": false
+  },
+  {
+    "type": ".",
     "named": false
   },
   {
@@ -623,7 +652,7 @@
     "named": false
   },
   {
-    "type": "array_identifier",
+    "type": "array_operator",
     "named": true
   },
   {
@@ -648,6 +677,10 @@
   },
   {
     "type": "enum",
+    "named": false
+  },
+  {
+    "type": "extends",
     "named": false
   },
   {
@@ -676,6 +709,10 @@
   },
   {
     "type": "icon",
+    "named": false
+  },
+  {
+    "type": "identifier",
     "named": false
   },
   {
@@ -708,6 +745,10 @@
   },
   {
     "type": "logging",
+    "named": false
+  },
+  {
+    "type": "module_name",
     "named": false
   },
   {
@@ -796,10 +837,6 @@
   },
   {
     "type": "true",
-    "named": false
-  },
-  {
-    "type": "variable_name",
     "named": false
   },
   {
