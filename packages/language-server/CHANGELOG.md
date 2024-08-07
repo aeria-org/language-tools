@@ -1,5 +1,11 @@
 # @aeria-lang/language-server
 
+## 0.0.6
+
+### Patch Changes
+
+- 389c527: Update upstream
+
 ## 0.0.5
 
 ### Patch Changes
