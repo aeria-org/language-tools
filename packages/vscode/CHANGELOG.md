@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.22
+
+### Patch Changes
+
+- 326850b: Add `actions` syntax
+
 ## 0.0.21
 
 ### Patch Changes
