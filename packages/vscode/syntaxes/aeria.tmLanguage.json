@@ -113,8 +113,24 @@
         { "include": "#constant" }
       ]
     },
+    "macro": {
+      "begin": "(\\w+)(\\()",
+      "beginCaptures": {
+        "1": { "name": "entity.name.function.aeria" },
+        "3": { "name": "punctuation.section.parens.begin.aeria" }
+      },
+      "end": "\\)",
+      "endCaptures": {
+        "1": { "name": "punctuation.section.parens.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#identifier" },
+        { "include": "#array" },
+        { "include": "#constant" }
+      ]
+    },
     "properties.type": {
-      "match": "(\\[\\])?((str|num|int|bool|enum|const)|(\\w+))",
+      "match": "(\\[\\])?((str|num|int|bool|enum|const|date|datetime)|(\\w+))",
       "captures": {
         "1": { "name": "keyword.operator.list_type.aeria" },
         "2": { "name": "support.type.primitive.aeria" },
@@ -124,7 +140,7 @@
     "properties.column.plain": {
       "patterns": [
         {
-          "match": "(\\w+)\\s+(\\[\\])?((str|num|int|bool|enum|const)|(\\w+))\\b",
+          "match": "(\\w+)\\s+(\\[\\])?((str|num|int|bool|enum|const|date|datetime)|(\\w+))\\b",
           "captures": {
             "1": { "name": "variable.other.assignment.aeria" },
             "2": { "name": "keyword.operator.list_type.aeria" },
@@ -251,7 +267,7 @@
         }
       ]
     },
-    "collection.functions.column": {
+    "functions.column": {
       "patterns": [
         {
           "match": "(((\\w+)(\\?))|(\\w+))",
@@ -523,7 +539,7 @@
         }
       ]
     },
-    "collection.functions": {
+    "functions": {
       "begin": "\\b(functions)\\s*(\\{)",
       "beginCaptures": {
         "1": { "name": "keyword.other.aeria" },
@@ -535,7 +551,24 @@
       },
       "patterns": [
         { "include": "#comment" },
-        { "include": "#collection.functions.column" }
+        { "include": "#macro" },
+        { "include": "#functions.column" }
+      ]
+    },
+    "functionsset": {
+      "begin": "\\b(functionsset)\\s+(\\w+)\\s*(\\{)",
+      "beginCaptures": {
+        "1": { "name": "keyword.other.aeria" },
+        "2": { "name": "variable.other.aeria" },
+        "3": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
+      },
+      "end": "\\}",
+      "endCaptures": {
+        "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
+      },
+      "patterns": [
+        { "include": "#comment" },
+        { "include": "#functions.column" }
       ]
     },
     "collection.security.function": {
@@ -669,14 +702,15 @@
         { "include": "#collection.formLayout" },
         { "include": "#collection.layout" },
         { "include": "#collection.search" },
-        { "include": "#collection.functions" },
+        { "include": "#functions" },
         { "include": "#collection.security" }
       ]
     },
     "declaration": {
       "patterns": [
         { "include": "#contract" },
-        { "include": "#collection" }
+        { "include": "#collection" },
+        { "include": "#functionsset" }
       ]
     }
   }
