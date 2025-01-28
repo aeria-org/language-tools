@@ -113,6 +113,14 @@
         { "include": "#constant" }
       ]
     },
+    "properties.type": {
+      "match": "(\\[\\])?((str|num|int|bool|enum|const)|(\\w+))",
+      "captures": {
+        "1": { "name": "keyword.operator.list_type.aeria" },
+        "2": { "name": "support.type.primitive.aeria" },
+        "3": { "name": "variable.language.relations.aeria" }
+      }
+    },
     "properties.column.plain": {
       "patterns": [
         {
@@ -159,8 +167,8 @@
       },
       "patterns": [
         { "include": "#comment" },
-        { "include": "#properties.column.object.keyValue" },
-        { "include": "#properties" }
+        { "include": "#properties" },
+        { "include": "#properties.column.object.keyValue" }
       ]
     },
     "properties.column": {
@@ -214,24 +222,31 @@
           ]
         },
         {
-          "begin": "\\b(payload|query|response)\\s*(\\[)",
+          "match": "\\b(payload|query|response)\\b",
+          "name": "keyword.other.aeria"
+        },
+        {
+          "match": "\\|",
+          "name": "punctuation.separator.array.aeria"
+        },
+        {
+          "match": "\\b(Error|Result)\\b",
+          "name": "support.type.primitive.aeria"
+        },
+        { "include": "#properties.type" },
+        {
+          "begin": "\\{",
           "beginCaptures": {
-            "1": { "name": "keyword.other.aeria" },
-            "2": { "name": "punctuation.definition.array.begin.aeria" }
+            "0": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
           },
-          "end": "\\]",
+          "end": "\\}",
           "endCaptures": {
-            "0": { "name": "punctuation.definition.array.end.aeria" }
+            "0": { "name": "punctuation.definition.bracket.curly.end.aeria" }
           },
-          "name": "meta.structure.array.aeria",
           "patterns": [
             { "include": "#comment" },
             { "include": "#properties" },
-            { "include": "#properties.column.object.keyValue" },
-            {
-              "match": ",",
-              "name": "punctuation.separator.array.aeria"
-            }
+            { "include": "#properties.column.object.keyValue" }
           ]
         }
       ]
