@@ -558,8 +558,8 @@
     "functionsset": {
       "begin": "\\b(functionsset)\\s+(\\w+)\\s*(\\{)",
       "beginCaptures": {
-        "1": { "name": "keyword.other.aeria" },
-        "2": { "name": "variable.other.aeria" },
+        "1": { "name": "storage.type.struct.aeria" },
+        "2": { "name": "entity.name.type.model.aeria" },
         "3": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
       },
       "end": "\\}",
