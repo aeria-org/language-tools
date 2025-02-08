@@ -555,8 +555,8 @@
         { "include": "#functions.column" }
       ]
     },
-    "functionsset": {
-      "begin": "\\b(functionsset)\\s+(\\w+)\\s*(\\{)",
+    "functionset": {
+      "begin": "\\b(functionset)\\s+(\\w+)\\s*(\\{)",
       "beginCaptures": {
         "1": { "name": "storage.type.struct.aeria" },
         "2": { "name": "entity.name.type.model.aeria" },
@@ -710,7 +710,7 @@
       "patterns": [
         { "include": "#contract" },
         { "include": "#collection" },
-        { "include": "#functionsset" }
+        { "include": "#functionset" }
       ]
     }
   }
