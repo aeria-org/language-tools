@@ -15,11 +15,11 @@ export const reportDiagnostics = async ({ document }: TextDocumentChangeEvent<Te
       message: error.message,
       range: {
         start: {
-          line: error.location.line,
+          line: error.location.line - 1,
           character: error.location.start,
         },
         end: {
-          line: error.location.line,
+          line: error.location.line - 1,
           character: error.location.end,
         },
       }

@@ -21,22 +21,16 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 23
           cache: pnpm
       - name: Install binaries
         run: sudo apt install jq
       - name: Install dependencies
         run: pnpm install
-
       - name: Build packages
-        run: |
-          pnpm --filter=./packages/tree-sitter-aeria ci:build
-          pnpm --filter=./packages/language-server build
-          pnpm --filter=./packages/vscode build
-
+        run: ./scripts/build.sh
       - name: Run tests
         run: pnpm -r test
-
       - name: Create release PR
         uses: changesets/action@v1
         with:
