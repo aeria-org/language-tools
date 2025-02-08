@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.25
+
+### Patch Changes
+
+- eed4f72: Update LSP bug
+
 ## 0.0.24
 
 ### Patch Changes
