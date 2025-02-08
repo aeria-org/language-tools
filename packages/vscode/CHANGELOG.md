@@ -1,5 +1,13 @@
 # @aeria-lang/vscode
 
+## 0.0.24
+
+### Patch Changes
+
+- 4c38a97: New lang version
+- Updated dependencies [4c38a97]
+  - @aeria-lang/language-server@0.0.7
+
 ## 0.0.23
 
 ### Patch Changes

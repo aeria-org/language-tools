@@ -1,5 +1,11 @@
 # @aeria-lang/language-server
 
+## 0.0.7
+
+### Patch Changes
+
+- 4c38a97: New lang version
+
 ## 0.0.6
 
 ### Patch Changes
