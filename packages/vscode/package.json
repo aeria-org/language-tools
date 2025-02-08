@@ -1,85 +1,87 @@
 {
-  "name": "aeria-lang-vscode",
-  "version": "0.0.23",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/aeria-org/language-tools.git",
-    "directory": "packages/vscode"
-  },
-  "engines": {
-    "vscode": ">=1.56.0"
-  },
-  "files": [
-    "dist",
-    "snippets",
-    "syntaxes",
-    "LICENSE",
-    "language-configuration.json"
-  ],
-  "publisher": "Aeria",
-  "main": "./dist/index.js",
-  "activationEvents": [
-    "onLanguage:aeria"
-  ],
-  "contributes": {
-    "languages": [
-      {
-        "id": "aeria",
-        "aliases": [
-          "Aeria",
-          "aeria"
-        ],
-        "extensions": [
-          "aeria"
-        ],
-        "configuration": "./language-configuration.json"
-      }
-    ],
-    "grammars": [
-      {
-        "language": "aeria",
-        "scopeName": "source.aeria",
-        "path": "./syntaxes/aeria.tmLanguage.json"
-      }
-    ],
-    "snippets": [
-      {
-        "language": "aeria",
-        "path": "./snippets/aeria.json"
-      }
-    ]
-  },
-  "scripts": {
-    "build": "pnpm tsc --noEmit && test -f dist/language-server.js && pnpm bundle",
-    "bundle": "pnpm esbuild src/index.ts --bundle --format=cjs --outdir=dist --platform=node --external:vscode",
-    "vscode:prepublish": "if ! test $GITHUB_ACTIONS; then pnpm build; rm -f dist/latest.vsix; fi",
-    "pack": "vsce pack --out dist/latest.vsix",
-    "publish:ovsx": "ovsx publish --packagePath dist/latest.vsix",
-    "publish:vsce": "vsce publish --packagePath dist/latest.vsix"
-  },
-  "devDependencies": {
-    "@aeria-lang/language-server": "file:../language-server",
-    "@types/node": "^20.14.10",
-    "@types/vscode": "1.56.0",
-    "@vscode/vsce": "^2.29.0",
-    "ovsx": "^0.9.1"
-  },
-  "peerDependencies": {
-    "@aeria-lang/language-server": "^0.0.6"
-  },
-  "dependencies": {
-    "vscode-languageclient": "^9.0.1"
-  },
-  "__metadata": {
-    "id": "5ad2b655-99d0-4d05-a8a9-729450a3621e",
-    "publisherId": "2ee8b56b-5eba-4557-b711-130f74e008cb",
-    "publisherDisplayName": "Aeria",
-    "targetPlatform": "undefined",
-    "updated": false,
-    "isPreReleaseVersion": false,
-    "hasPreReleaseVersion": false,
-    "installedTimestamp": 1718503638262,
-    "pinned": false
-  }
+	"name": "aeria-lang-vscode",
+	"version": "0.0.23",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/aeria-org/language-tools.git",
+		"directory": "packages/vscode"
+	},
+	"engines": {
+		"vscode": ">=1.56.0"
+	},
+	"files": [
+		"dist",
+		"snippets",
+		"syntaxes",
+		"LICENSE",
+		"language-configuration.json"
+	],
+	"publisher": "Aeria",
+	"main": "./dist/index.js",
+	"activationEvents": [
+		"onLanguage:aeria"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "aeria",
+				"aliases": [
+					"Aeria",
+					"aeria"
+				],
+				"extensions": [
+					"aeria"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "aeria",
+				"scopeName": "source.aeria",
+				"path": "./syntaxes/aeria.tmLanguage.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "aeria",
+				"path": "./snippets/aeria.json"
+			}
+		]
+	},
+	"scripts": {
+		"build": "pnpm tsc --noEmit && test -f dist/language-server.js && pnpm bundle",
+		"bundle": "pnpm esbuild src/index.ts --bundle --format=cjs --outdir=dist --platform=node --external:vscode",
+		"vscode:prepublish": "if ! test $GITHUB_ACTIONS; then pnpm build; rm -f dist/latest.vsix; fi",
+		"pack": "vsce pack --out dist/latest.vsix",
+		"publish:ovsx": "ovsx publish --packagePath dist/latest.vsix",
+		"publish:vsce": "vsce publish --packagePath dist/latest.vsix"
+	},
+	"devDependencies": {
+		"@aeria-lang/language-server": "file:../language-server",
+		"@types/node": "^20.14.10",
+		"@types/vscode": "1.56.0",
+		"@vscode/vsce": "^2.29.0",
+		"ovsx": "^0.9.1"
+	},
+	"peerDependencies": {
+		"@aeria-lang/language-server": "^0.0.6"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^9.0.1"
+	},
+	"__metadata": {
+		"id": "5ad2b655-99d0-4d05-a8a9-729450a3621e",
+		"publisherId": "2ee8b56b-5eba-4557-b711-130f74e008cb",
+		"publisherDisplayName": "Aeria",
+		"targetPlatform": "undefined",
+		"updated": true,
+		"isPreReleaseVersion": false,
+		"hasPreReleaseVersion": false,
+		"installedTimestamp": 1738188997959,
+		"pinned": false,
+		"isApplicationScoped": false,
+		"preRelease": false
+	}
 }

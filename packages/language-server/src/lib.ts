@@ -1,28 +1,33 @@
 import type { Connection, TextDocumentChangeEvent } from 'vscode-languageserver'
 import type { TextDocument } from 'vscode-languageserver-textdocument'
-import { fileURLToPath, pathToFileURL } from 'url'
+import { fileURLToPath } from 'url'
 
 export const reportDiagnostics = async ({ document }: TextDocumentChangeEvent<TextDocument>, connection: Connection) => {
-  const lang = await import('aeria-lang')
-  const source = document.getText()
+  const lang = await import('@aeriajs/compiler')
 
-  const resultEither = lang.checkSource({
-    filename: fileURLToPath(document.uri),
-    source,
+  const source = document.getText()
+  const result = await lang.parseAndCheck({
+    [fileURLToPath(document.uri)]: source,
   })
 
-  if( lang.isLeft(resultEither) ) {
-    const diagnostic = lang.unwrap(lang.unwrap(resultEither))
-    const range = lang.getNormalizedSpan(diagnostic.span)
+  if( !result.success ) {
+    const diagnostics = result.errors.map((error) => ({
+      message: error.message,
+      range: {
+        start: {
+          line: error.location.line,
+          character: error.location.start,
+        },
+        end: {
+          line: error.location.line,
+          character: error.location.end,
+        },
+      }
+    }))
 
     connection.sendDiagnostics({
-      uri: pathToFileURL(diagnostic.filepath).href,
-      diagnostics: [
-        {
-          message: diagnostic.info,
-          range,
-        }
-      ]
+      uri: document.uri,
+      diagnostics,
     })
     return
   }

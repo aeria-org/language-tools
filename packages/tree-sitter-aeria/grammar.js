@@ -137,6 +137,8 @@ module.exports = grammar({
       'bool',
       'enum',
       'const',
+      'date',
+      'datetime',
     ),
     properties_column: $ => seq(
       field('name', $.identifier),
