@@ -1,5 +1,11 @@
 # @aeria-lang/language-server
 
+## 0.0.8
+
+### Patch Changes
+
+- eed4f72: Update LSP bug
+
 ## 0.0.7
 
 ### Patch Changes
