@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.27
+
+### Patch Changes
+
+- abde59b: Fix CRLF bug
+
 ## 0.0.26
 
 ### Patch Changes
