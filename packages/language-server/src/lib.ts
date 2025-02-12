@@ -8,6 +8,8 @@ export const reportDiagnostics = async ({ document }: TextDocumentChangeEvent<Te
   const source = document.getText()
   const result = await lang.parseAndCheck({
     [fileURLToPath(document.uri)]: source,
+  }, {
+    languageServer: true,
   })
 
   if( !result.success ) {
