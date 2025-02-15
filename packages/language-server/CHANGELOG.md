@@ -1,5 +1,11 @@
 # @aeria-lang/language-server
 
+## 0.0.9
+
+### Patch Changes
+
+- abde59b: Fix CRLF bug
+
 ## 0.0.8
 
 ### Patch Changes
