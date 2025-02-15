@@ -1,5 +1,11 @@
 # @aeria-lang/language-server
 
+## 0.0.10
+
+### Patch Changes
+
+- 32e5f9a: Update compiler version
+
 ## 0.0.9
 
 ### Patch Changes
