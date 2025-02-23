@@ -26,3 +26,16 @@ collection Pet {
   }
 }
 
+contract Test {
+  roles {
+    test,
+    fdasfdsa,
+  }
+  payload {
+    properties {
+      a const @value("oi"),
+      b const @value("xx")
+    }
+  }
+}
+
