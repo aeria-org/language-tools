@@ -16,14 +16,14 @@ collection Pet {
   functions {
     get @expose(true)
   }
-  filtersPresets {
-    active {
-      label "Active"
-        filters {
-          active true
-        }
-    }
-  }
+  // filtersPresets {
+  //   active {
+  //     label "Active"
+  //       filters {
+  //         active true
+  //       }
+  //   }
+  // }
 }
 
 contract Test {

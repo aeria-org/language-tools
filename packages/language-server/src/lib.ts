@@ -1,6 +1,6 @@
 import type { Connection, TextDocumentChangeEvent } from 'vscode-languageserver'
 import type { TextDocument } from 'vscode-languageserver-textdocument'
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 
 export const reportDiagnostics = async ({ document }: TextDocumentChangeEvent<TextDocument>, connection: Connection) => {
   const lang = await import('@aeriajs/compiler')
@@ -12,31 +12,24 @@ export const reportDiagnostics = async ({ document }: TextDocumentChangeEvent<Te
     languageServer: true,
   })
 
-  if( !result.success ) {
-    const diagnostics = result.errors.map((error) => ({
-      message: error.message,
-      range: {
-        start: {
-          line: error.location.line - 1,
-          character: error.location.start,
-        },
-        end: {
-          line: error.location.line - 1,
-          character: error.location.end,
-        },
-      }
-    }))
 
-    connection.sendDiagnostics({
-      uri: document.uri,
-      diagnostics,
-    })
-    return
-  }
+  const diagnostics = result.errors.map((error) => ({
+    message: error.message,
+    range: {
+      start: {
+        line: error.location.line - 1,
+        character: error.location.start,
+      },
+      end: {
+        line: error.location.line - 1,
+        character: error.location.end,
+      },
+    }
+  }))
 
   connection.sendDiagnostics({
     uri: document.uri,
-    diagnostics: []
+    diagnostics,
   })
 }
 
