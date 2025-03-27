@@ -1,5 +1,11 @@
 # @aeria-lang/language-server
 
+## 0.0.12
+
+### Patch Changes
+
+- 7d2b0df: Update LSP
+
 ## 0.0.11
 
 ### Patch Changes
