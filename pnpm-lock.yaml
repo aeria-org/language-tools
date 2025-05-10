@@ -52,8 +52,8 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
       tree-sitter-cli:
-        specifier: ^0.22.6
-        version: 0.22.6
+        specifier: ^0.25.3
+        version: 0.25.3
 
   packages/vscode:
     dependencies:
@@ -63,7 +63,7 @@ importers:
     devDependencies:
       '@aeria-lang/language-server':
         specifier: file:../language-server
-        version: file:packages/language-server(@aeriajs/common@0.0.141(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))
+        version: link:../language-server
       '@types/node':
         specifier: ^20.14.10
         version: 20.17.25
@@ -79,20 +79,11 @@ importers:
 
 packages:
 
-  '@aeria-lang/language-server@file:packages/language-server':
-    resolution: {directory: packages/language-server, type: directory}
-
   '@aeriajs/common@0.0.141':
     resolution: {integrity: sha512-he3cjN3a2FdfRdQqXoCSI+1n8HRF9ob/FL/1ZGBzvN7Q/3wNGBinv5TFvKKjs5gHMt9Qzh6RgxjUK1WfHYIIzw==}
     peerDependencies:
       '@aeriajs/types': ^0.0.123
       bson: ^6.5.0
-
-  '@aeriajs/compiler@0.0.18':
-    resolution: {integrity: sha512-zP/xxyajieRdxwKEIKeLQXKGVe3Ie60pmDA79hB0aGbh3AzJUQ6dnUZm0esqG5DLj3o9mgHbqQ1wpkNpg5ehPw==}
-    peerDependencies:
-      '@aeriajs/common': ^0.0.136
-      '@aeriajs/types': ^0.0.118
 
   '@aeriajs/compiler@0.0.25':
     resolution: {integrity: sha512-0Mb98kPA5UpIkassYGwb0Yw5qsNBqcczmgZxAO35R69ZZQCSQPMeYodx0GxvGlYe/h36MQfTPywqkVNV3rrB1g==}
@@ -1698,8 +1689,9 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
-  tree-sitter-cli@0.22.6:
-    resolution: {integrity: sha512-s7mYOJXi8sIFkt/nLJSqlYZP96VmKTc3BAwIX0rrrlRxWjWuCwixFqwzxWZBQz4R8Hx01iP7z3cT3ih58BUmZQ==}
+  tree-sitter-cli@0.25.3:
+    resolution: {integrity: sha512-Bk6ZUXG+cKnwZpfR/te4NDrKld90p6350eqWlbLwSpV9/8vmL/x8LCw+3k7quY9oMDaYoMXHMvokXJbkM5A7bA==}
+    engines: {node: '>=12.0.0'}
     hasBin: true
 
   tree-sitter@0.21.1:
@@ -1840,24 +1832,10 @@ packages:
 
 snapshots:
 
-  '@aeria-lang/language-server@file:packages/language-server(@aeriajs/common@0.0.141(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))':
-    dependencies:
-      '@aeriajs/compiler': 0.0.18(@aeriajs/common@0.0.141(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))
-      vscode-languageserver: 9.0.1
-      vscode-languageserver-textdocument: 1.0.12
-    transitivePeerDependencies:
-      - '@aeriajs/common'
-      - '@aeriajs/types'
-
   '@aeriajs/common@0.0.141(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))(bson@6.10.3)':
     dependencies:
       '@aeriajs/types': 0.0.123(@phosphor-icons/core@2.1.1)
       bson: 6.10.3
-
-  '@aeriajs/compiler@0.0.18(@aeriajs/common@0.0.141(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))':
-    dependencies:
-      '@aeriajs/common': 0.0.141(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))(bson@6.10.3)
-      '@aeriajs/types': 0.0.123(@phosphor-icons/core@2.1.1)
 
   '@aeriajs/compiler@0.0.25(@aeriajs/common@0.0.141(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.123(@phosphor-icons/core@2.1.1))':
     dependencies:
@@ -3613,7 +3591,7 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
-  tree-sitter-cli@0.22.6: {}
+  tree-sitter-cli@0.25.3: {}
 
   tree-sitter@0.21.1:
     dependencies:
