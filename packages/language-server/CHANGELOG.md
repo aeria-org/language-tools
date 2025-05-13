@@ -1,5 +1,11 @@
 # @aeria-lang/language-server
 
+## 0.0.14
+
+### Patch Changes
+
+- bfa5265: Update LSP
+
 ## 0.0.13
 
 ### Patch Changes
