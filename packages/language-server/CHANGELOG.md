@@ -1,5 +1,11 @@
 # @aeria-lang/language-server
 
+## 0.0.15
+
+### Patch Changes
+
+- 5860a54: Update LSP
+
 ## 0.0.14
 
 ### Patch Changes
