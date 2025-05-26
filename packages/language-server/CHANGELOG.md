@@ -1,5 +1,12 @@
 # @aeria-lang/language-server
 
+## 0.0.17
+
+### Patch Changes
+
+- 539af77: Update `@aeriajs/compiler`
+- ebf1155: Update LSP
+
 ## 0.0.16
 
 ### Patch Changes
