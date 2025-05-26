@@ -304,7 +304,7 @@
       ]
     },
     "collection.keyValue": {
-      "begin": "\\b(form|filters|immutable|indexes|presets|required|table|tableMeta|writable)\\s*(\\{)",
+      "begin": "\\b(form|filters|middlewares|immutable|indexes|presets|required|table|tableMeta|writable)\\s*(\\{)",
       "beginCaptures": {
         "1": { "name": "keyword.other.aeria" },
         "2": { "name": "punctuation.definition.bracket.curly.begin.aeria" }
