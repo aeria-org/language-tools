@@ -30,8 +30,8 @@ importers:
   packages/language-server:
     dependencies:
       '@aeriajs/compiler':
-        specifier: ^0.0.41
-        version: 0.0.41(@aeriajs/common@0.0.145(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))
+        specifier: ^0.0.42
+        version: 0.0.42(@aeriajs/common@0.0.145(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))
       glob:
         specifier: ^11.0.2
         version: 11.0.2
@@ -91,14 +91,14 @@ packages:
       '@aeriajs/types': ^0.0.127
       bson: ^6.5.0
 
-  '@aeriajs/compiler@0.0.39':
-    resolution: {integrity: sha512-CQU78cvvyyQSDfsGQbjqPPdK1huZO4+nlwMZrH/rYSDQI5dXRNgy3QhMHWM+7evyO6vvZA+vkImS4RafDyS0Lg==}
-    peerDependencies:
-      '@aeriajs/common': ^0.0.144
-      '@aeriajs/types': ^0.0.126
-
   '@aeriajs/compiler@0.0.41':
     resolution: {integrity: sha512-YXynVBocVgLzRBhLyWkn6EH0QpL4nLPv3ng+ystyH8Mg5tRu0O2VQ4XAzOc7RANkm7+MRLrK9WohhzEqec4P6Q==}
+    peerDependencies:
+      '@aeriajs/common': ^0.0.145
+      '@aeriajs/types': ^0.0.127
+
+  '@aeriajs/compiler@0.0.42':
+    resolution: {integrity: sha512-KPE040jRvH1OqMHHl06YrUPyvF5rntweWq/h5r+vgw9W4y/rzy0ghxdCJ/c50bIZj+WGJKLYfPR6bGCJZLcOlA==}
     peerDependencies:
       '@aeriajs/common': ^0.0.145
       '@aeriajs/types': ^0.0.127
@@ -2068,7 +2068,7 @@ snapshots:
 
   '@aeria-lang/language-server@file:packages/language-server(@aeriajs/common@0.0.145(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))':
     dependencies:
-      '@aeriajs/compiler': 0.0.39(@aeriajs/common@0.0.145(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))
+      '@aeriajs/compiler': 0.0.41(@aeriajs/common@0.0.145(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))
       glob: 11.0.2
       vscode-languageserver: 9.0.1
       vscode-languageserver-textdocument: 1.0.12
@@ -2081,12 +2081,12 @@ snapshots:
       '@aeriajs/types': 0.0.127(@phosphor-icons/core@2.1.1)
       bson: 6.10.3
 
-  '@aeriajs/compiler@0.0.39(@aeriajs/common@0.0.145(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))':
+  '@aeriajs/compiler@0.0.41(@aeriajs/common@0.0.145(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))':
     dependencies:
       '@aeriajs/common': 0.0.145(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))(bson@6.10.3)
       '@aeriajs/types': 0.0.127(@phosphor-icons/core@2.1.1)
 
-  '@aeriajs/compiler@0.0.41(@aeriajs/common@0.0.145(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))':
+  '@aeriajs/compiler@0.0.42(@aeriajs/common@0.0.145(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))':
     dependencies:
       '@aeriajs/common': 0.0.145(@aeriajs/types@0.0.127(@phosphor-icons/core@2.1.1))(bson@6.10.3)
       '@aeriajs/types': 0.0.127(@phosphor-icons/core@2.1.1)

@@ -1,4 +1,4 @@
-import type { Connection, TextDocumentChangeEvent } from 'vscode-languageserver'
+import type { Connection, Diagnostic, TextDocumentChangeEvent } from 'vscode-languageserver'
 import type { TextDocument } from 'vscode-languageserver-textdocument'
 import { fileURLToPath } from 'node:url'
 import { readFile } from 'node:fs/promises'
@@ -25,19 +25,26 @@ export const reportDiagnostics = async ({ document }: TextDocumentChangeEvent<Te
     languageServer: true,
   })
 
-  const diagnostics = result.errors.map((error) => ({
-    message: error.message,
-    range: {
-      start: {
-        line: error.location.line - 1,
-        character: error.location.start,
-      },
-      end: {
-        line: error.location.line - 1,
-        character: error.location.end,
-      },
+  const diagnostics: Diagnostic[] = []
+  for( const error of result.errors ) {
+    if( error.location.file !== currentFileName ) {
+      continue
     }
-  }))
+
+    diagnostics.push({
+      message: error.message,
+      range: {
+        start: {
+          line: error.location.line - 1,
+          character: error.location.start,
+        },
+        end: {
+          line: error.location.line - 1,
+          character: error.location.end,
+        },
+      }
+    })
+  }
 
   connection.sendDiagnostics({
     uri: document.uri,
