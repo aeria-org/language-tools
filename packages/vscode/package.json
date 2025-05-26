@@ -1,6 +1,6 @@
 {
   "name": "aeria-lang-vscode",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -61,7 +61,7 @@
   "devDependencies": {
     "@aeria-lang/language-server": "file:../language-server",
     "@types/node": "^22.15.19",
-    "@types/vscode": "1.56.0",
+    "@types/vscode": "1.100.0",
     "@vscode/vsce": "^3.4.2",
     "ovsx": "^0.10.2"
   },
