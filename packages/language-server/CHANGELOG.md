@@ -1,5 +1,12 @@
 # @aeria-lang/language-server
 
+## 0.0.16
+
+### Patch Changes
+
+- c30ceb4: Update syntax
+- bc2f898: Update LSP
+
 ## 0.0.15
 
 ### Patch Changes
