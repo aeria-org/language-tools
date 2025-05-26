@@ -32,6 +32,9 @@ importers:
       '@aeriajs/compiler':
         specifier: ^0.0.39
         version: 0.0.39(@aeriajs/common@0.0.144(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))(bson@6.10.3))(@aeriajs/types@0.0.126(@phosphor-icons/core@2.1.1))
+      glob:
+        specifier: ^11.0.2
+        version: 11.0.2
       vscode-languageserver:
         specifier: ^9.0.1
         version: 9.0.1
