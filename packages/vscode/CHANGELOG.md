@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.0.32
+
+### Patch Changes
+
+- d03271b: Update LSP
+
 ## 0.0.31
 
 ### Patch Changes
