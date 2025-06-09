@@ -62,7 +62,7 @@
     "@aeria-lang/language-server": "file:../language-server",
     "@types/node": "^22.15.19",
     "@types/vscode": "1.100.0",
-    "@vscode/vsce": "^3.4.2",
+    "@vscode/vsce": "^3.5.0",
     "ovsx": "^0.10.2"
   },
   "dependencies": {
