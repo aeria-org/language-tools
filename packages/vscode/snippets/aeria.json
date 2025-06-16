@@ -18,5 +18,31 @@
       "\t}",
       "}"
     ]
+  },
+  "Contract": {
+    "prefix": "contract",
+    "description": "Declare a new contract",
+    "body": [
+      "contract ${1:Name} {",
+      "\tpayload {",
+      "\t\tproperties {",
+      "\t\t\tname str",
+      "\t\t}",
+      "\t}",
+      "\tresponse",
+      "\t\t| Error {",
+      "\t\t\tproperties {",
+      "\t\t\t\thttpStatus int",
+      "\t\t\t\tcode str",
+      "\t\t\t}",
+      "\t\t}",
+      "\t\t| Result {",
+      "\t\t\tproperties {",
+      "\t\t\t\tmessage str",
+      "\t\t\t}",
+      "\t\t}",
+      "\t}",
+      "}"
+    ]
   }
 }
