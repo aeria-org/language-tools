@@ -130,7 +130,7 @@
       ]
     },
     "properties.type": {
-      "match": "(\\[\\])?((str|num|int|bool|enum|const|date|datetime)|(\\w+))",
+      "match": "(\\[\\])?((str|num|int|bool|enum|const|date|datetime|objectid)|(\\w+))",
       "captures": {
         "1": { "name": "keyword.operator.list_type.aeria" },
         "2": { "name": "support.type.primitive.aeria" },
@@ -140,7 +140,7 @@
     "properties.column.plain": {
       "patterns": [
         {
-          "match": "(\\w+)\\s+(\\[\\])?((str|num|int|bool|enum|const|date|datetime)|(\\w+))\\b",
+          "match": "(\\w+)\\s+(\\[\\])?((str|num|int|bool|enum|const|date|datetime|objectid)|(\\w+))\\b",
           "captures": {
             "1": { "name": "variable.other.assignment.aeria" },
             "2": { "name": "keyword.operator.list_type.aeria" },

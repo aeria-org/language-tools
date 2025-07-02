@@ -139,6 +139,7 @@ module.exports = grammar({
       'const',
       'date',
       'datetime',
+      'objectid',
     ),
     properties_column: $ => seq(
       field('name', $.identifier),
