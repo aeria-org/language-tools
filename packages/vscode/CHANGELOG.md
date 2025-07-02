@@ -1,5 +1,11 @@
 # @aeria-lang/vscode
 
+## 0.1.1
+
+### Patch Changes
+
+- 0705abe: Add snippet for contracts
+
 ## 0.1.0
 
 ### Minor Changes
