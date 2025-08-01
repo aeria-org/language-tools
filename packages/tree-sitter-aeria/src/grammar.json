@@ -1,4 +1,5 @@
 {
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/grammar.schema.json",
   "name": "aeria",
   "rules": {
     "program": {
@@ -535,6 +536,10 @@
         {
           "type": "STRING",
           "value": "datetime"
+        },
+        {
+          "type": "STRING",
+          "value": "objectid"
         }
       ]
     },
@@ -1423,5 +1428,6 @@
   "precedences": [],
   "externals": [],
   "inline": [],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }

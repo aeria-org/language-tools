@@ -480,6 +480,7 @@
   {
     "type": "program",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -770,6 +771,10 @@
   {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "objectid",
+    "named": false
   },
   {
     "type": "options",
