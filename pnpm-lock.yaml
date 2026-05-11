@@ -55,8 +55,8 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
       tree-sitter-cli:
-        specifier: ^0.25.6
-        version: 0.25.6
+        specifier: ^0.26.8
+        version: 0.26.8
 
   packages/vscode:
     dependencies:
@@ -66,7 +66,7 @@ importers:
     devDependencies:
       '@aeria-lang/language-server':
         specifier: file:../language-server
-        version: file:packages/language-server(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))
+        version: link:../language-server
       '@types/node':
         specifier: ^24.0.3
         version: 24.0.10
@@ -82,20 +82,11 @@ importers:
 
 packages:
 
-  '@aeria-lang/language-server@file:packages/language-server':
-    resolution: {directory: packages/language-server, type: directory}
-
   '@aeriajs/common@0.0.163':
     resolution: {integrity: sha512-rimRMpwHUSc6+dlq386awpaeqDqulygdg/XcoWX5IOnnaMNgEkBH1OlVDa1toSgYGNtFWjKM+L3LQ68XTaoiOA==}
     peerDependencies:
       '@aeriajs/types': ^0.0.138
       bson: ^6.10.4
-
-  '@aeriajs/compiler@0.0.69':
-    resolution: {integrity: sha512-RZE8UUnRfwrFlvbsCdahOhm3D+z0DsVsBftycuV6LsRr2AplfuHy5W9OO3220fZzY8dmP7q5VPYe/n+FuCc9gA==}
-    peerDependencies:
-      '@aeriajs/common': ^0.0.160
-      '@aeriajs/types': ^0.0.136
 
   '@aeriajs/compiler@0.0.77':
     resolution: {integrity: sha512-ciElwjbPJw4k+Czh0YXuZXXiElDvoX9T2ClUOuhkhW/gMpt1ElXy+G9v1sE9c1w5CDu1y7dAnhuKf1k03zrJqQ==}
@@ -1189,6 +1180,7 @@ packages:
   git-raw-commits@4.0.0:
     resolution: {integrity: sha512-ICsMM1Wk8xSGMowkOmPrzo2Fgmfo4bMHLNX6ytHjajRJUqvHOw/TFapQ+QG75c3X/tTDDhOSRPGC52dDbNM8FQ==}
     engines: {node: '>=16'}
+    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
     hasBin: true
 
   github-from-package@0.0.0:
@@ -1201,6 +1193,7 @@ packages:
   glob@11.0.3:
     resolution: {integrity: sha512-2Nim7dha1KVkaiF4q6Dj+ngPPMdfvLJEOpZk/jKiUAkqKebpGAWQXAq9z1xu9HKu5lWfqw/FASuccEjyznjPaA==}
     engines: {node: 20 || >=22}
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
     hasBin: true
 
   global-directory@4.0.1:
@@ -1762,6 +1755,7 @@ packages:
   prebuild-install@7.1.3:
     resolution: {integrity: sha512-8Mf2cbV7x1cXPUILADGI3wuhfqWvtiLA1iclTDbFRZkgRQS0NqsPZphna9V+HyTEadheuPmjaJMsbzKQFOzLug==}
     engines: {node: '>=10'}
+    deprecated: No longer maintained. Please contact the author of the relevant native addon; alternatives are available.
     hasBin: true
 
   prebuildify@6.0.1:
@@ -2021,8 +2015,8 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
-  tree-sitter-cli@0.25.6:
-    resolution: {integrity: sha512-UhkXRkMPtBgE4OatZtYVtDsT3HFUliqAJcs49XQaZv8d2sbeTzEhpJVpMaCqBR3HGhb1WpyoodaFXQaMuOLPEg==}
+  tree-sitter-cli@0.26.8:
+    resolution: {integrity: sha512-teQFMF5V/g8aIdakZ0M/eZoedCM3MuBt1JuDOICLloA2hy7QfeOInb99U6wiML4qXcBHWREwf0U1TWzw7p67YA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
 
@@ -2099,6 +2093,7 @@ packages:
 
   uuid@8.3.2:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    deprecated: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
     hasBin: true
 
   validate-npm-package-license@3.0.4:
@@ -2132,6 +2127,7 @@ packages:
   whatwg-encoding@3.1.1:
     resolution: {integrity: sha512-6qN4hJdMwfYBtE3YBTTHhoeuUrDBPZmbQaxWAqSALV/MeEnR5z1xd8UKud2RAkFoPkmB+hli1TZSnyi84xz1vQ==}
     engines: {node: '>=18'}
+    deprecated: Use @exodus/bytes instead for a more spec-conformant and faster implementation
 
   whatwg-mimetype@4.0.0:
     resolution: {integrity: sha512-QaKxh0eNIi2mE9p2vEdzfagOKHCcj1pJ56EEHGQOVxp8r9/iszLUUV7v89x9O1p/T+NlTM5W7jW6+cz4Fq1YVg==}
@@ -2192,25 +2188,10 @@ packages:
 
 snapshots:
 
-  '@aeria-lang/language-server@file:packages/language-server(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))':
-    dependencies:
-      '@aeriajs/compiler': 0.0.69(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))
-      glob: 11.0.3
-      vscode-languageserver: 9.0.1
-      vscode-languageserver-textdocument: 1.0.12
-    transitivePeerDependencies:
-      - '@aeriajs/common'
-      - '@aeriajs/types'
-
   '@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4)':
     dependencies:
       '@aeriajs/types': 0.0.138(@phosphor-icons/core@2.1.1)
       bson: 6.10.4
-
-  '@aeriajs/compiler@0.0.69(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))':
-    dependencies:
-      '@aeriajs/common': 0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4)
-      '@aeriajs/types': 0.0.138(@phosphor-icons/core@2.1.1)
 
   '@aeriajs/compiler@0.0.77(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))':
     dependencies:
@@ -4311,7 +4292,7 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
-  tree-sitter-cli@0.25.6: {}
+  tree-sitter-cli@0.26.8: {}
 
   tree-sitter@0.21.1:
     dependencies:
