@@ -63,7 +63,7 @@
     "@types/node": "^25.6.2",
     "@types/vscode": "1.100.0",
     "@vscode/vsce": "^3.5.0",
-    "ovsx": "^0.10.2"
+    "ovsx": "^0.10.12"
   },
   "dependencies": {
     "vscode-languageclient": "^9.0.1"
