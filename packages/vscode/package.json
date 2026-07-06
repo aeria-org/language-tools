@@ -66,6 +66,6 @@
     "ovsx": "^1.0.2"
   },
   "dependencies": {
-    "vscode-languageclient": "^10.0.1"
+    "vscode-languageclient": "^10.1.0"
   }
 }
