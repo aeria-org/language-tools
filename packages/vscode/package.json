@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@aeria-lang/language-server": "file:../language-server",
-    "@types/node": "^26.0.1",
+    "@types/node": "^26.1.1",
     "@types/vscode": "1.125.0",
     "@vscode/vsce": "^3.9.2",
     "ovsx": "^1.0.2"
