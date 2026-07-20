@@ -30,8 +30,8 @@ importers:
   packages/language-server:
     dependencies:
       '@aeriajs/compiler':
-        specifier: ^0.0.77
-        version: 0.0.77(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))
+        specifier: ^0.0.87
+        version: 0.0.87(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))
       glob:
         specifier: ^13.0.6
         version: 13.0.6
@@ -88,11 +88,11 @@ packages:
       '@aeriajs/types': ^0.0.138
       bson: ^6.10.4
 
-  '@aeriajs/compiler@0.0.77':
-    resolution: {integrity: sha512-ciElwjbPJw4k+Czh0YXuZXXiElDvoX9T2ClUOuhkhW/gMpt1ElXy+G9v1sE9c1w5CDu1y7dAnhuKf1k03zrJqQ==}
+  '@aeriajs/compiler@0.0.87':
+    resolution: {integrity: sha512-WG2x1HqckyRXY4vK8VIcM7GJu8VshjUHmI7xDZP5MewPRzvbyWTk/eEBOMe+ZpMip473ehge/9MU5Csf8DmpCw==}
     peerDependencies:
-      '@aeriajs/common': ^0.0.163
-      '@aeriajs/types': ^0.0.138
+      '@aeriajs/common': ^0.0.173
+      '@aeriajs/types': ^0.0.144
 
   '@aeriajs/types@0.0.138':
     resolution: {integrity: sha512-zoRIi06cJhlvOlqFIkQleCXUiDT9e49opsQKAG++HeVs4KBKMkHQHLnkT2xIBylETJcbk+MNQ+aNZZ4b9IoZjg==}
@@ -2099,7 +2099,7 @@ snapshots:
       '@aeriajs/types': 0.0.138(@phosphor-icons/core@2.1.1)
       bson: 6.10.4
 
-  '@aeriajs/compiler@0.0.77(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))':
+  '@aeriajs/compiler@0.0.87(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))':
     dependencies:
       '@aeriajs/common': 0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4)
       '@aeriajs/types': 0.0.138(@phosphor-icons/core@2.1.1)
