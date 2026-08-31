@@ -55,8 +55,8 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
       tree-sitter-cli:
-        specifier: ^0.26.11
-        version: 0.26.11
+        specifier: ^0.26.13
+        version: 0.26.13
 
   packages/vscode:
     dependencies:
@@ -66,7 +66,7 @@ importers:
     devDependencies:
       '@aeria-lang/language-server':
         specifier: file:../language-server
-        version: link:../language-server
+        version: file:packages/language-server(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))
       '@types/node':
         specifier: ^26.2.0
         version: 26.2.0
@@ -81,6 +81,9 @@ importers:
         version: 1.1.1(@types/node@26.2.0)
 
 packages:
+
+  '@aeria-lang/language-server@file:packages/language-server':
+    resolution: {directory: packages/language-server, type: directory}
 
   '@aeriajs/common@0.0.163':
     resolution: {integrity: sha512-rimRMpwHUSc6+dlq386awpaeqDqulygdg/XcoWX5IOnnaMNgEkBH1OlVDa1toSgYGNtFWjKM+L3LQ68XTaoiOA==}
@@ -2253,8 +2256,8 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
-  tree-sitter-cli@0.26.11:
-    resolution: {integrity: sha512-/hRCA0Ehkgk6B5WTYSiENk1R2Zv3LJcfvL3wjofzx+EYaKySZDu0agGRQcccay9Lg7wxJWsDa9cTRS92wsM5gQ==}
+  tree-sitter-cli@0.26.13:
+    resolution: {integrity: sha512-SIC74lxT2jsygxaIGGb50Bpf8jtll24aXju98Y3eJienBTXCRQ+5k3YigwN31pASEUZKcKh98EPSZWky7ugUMA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
 
@@ -2349,6 +2352,9 @@ packages:
   vscode-languageserver-textdocument@1.0.13:
     resolution: {integrity: sha512-nx0ZHwMGIsVkzFG3/VLeJYBLTaFBRuNdGDvevvjuoayU5EOS2fEYazOhtCM3PI9ClMMg5igc0uwXtAq4tJj+Dw==}
 
+  vscode-languageserver-textdocument@1.0.14:
+    resolution: {integrity: sha512-EQyqJMi552E4ZTf46izQ4Fj6XquqxCySR3J5ZSD1SisMf6RfpeOWHxGBE8Gr6V0/3GHIGdAzDn8F8+1nTGCnoQ==}
+
   vscode-languageserver-types@3.17.5:
     resolution: {integrity: sha512-Ld1VelNuX9pdF39h2Hgaeb5hEZM2Z3jUrrMgWQAu82jMtZp7p3vJT3BzToKtZI7NgQssZje5o0zryOrhQvzQAg==}
 
@@ -2427,6 +2433,16 @@ packages:
     engines: {node: '>=18'}
 
 snapshots:
+
+  '@aeria-lang/language-server@file:packages/language-server(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))':
+    dependencies:
+      '@aeriajs/compiler': 0.0.77(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))
+      glob: 13.0.6
+      vscode-languageserver: 9.0.1
+      vscode-languageserver-textdocument: 1.0.14
+    transitivePeerDependencies:
+      - '@aeriajs/common'
+      - '@aeriajs/types'
 
   '@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4)':
     dependencies:
@@ -4658,7 +4674,7 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
-  tree-sitter-cli@0.26.11: {}
+  tree-sitter-cli@0.26.13: {}
 
   tree-sitter@0.21.1:
     dependencies:
@@ -4756,6 +4772,8 @@ snapshots:
   vscode-languageserver-textdocument@1.0.12: {}
 
   vscode-languageserver-textdocument@1.0.13: {}
+
+  vscode-languageserver-textdocument@1.0.14: {}
 
   vscode-languageserver-types@3.17.5: {}
 
