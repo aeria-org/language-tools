@@ -55,8 +55,8 @@ importers:
         specifier: ^6.0.1
         version: 6.0.1
       tree-sitter-cli:
-        specifier: ^0.26.11
-        version: 0.26.11
+        specifier: ^0.27.0
+        version: 0.27.0
 
   packages/vscode:
     dependencies:
@@ -2253,8 +2253,8 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
-  tree-sitter-cli@0.26.11:
-    resolution: {integrity: sha512-/hRCA0Ehkgk6B5WTYSiENk1R2Zv3LJcfvL3wjofzx+EYaKySZDu0agGRQcccay9Lg7wxJWsDa9cTRS92wsM5gQ==}
+  tree-sitter-cli@0.27.0:
+    resolution: {integrity: sha512-E42kR0og1mFlZBxPj7K4fBXCTjxPTGe19U9RXGWNq0FQKzXOxIp8bhCYFMKhddiVZUsJwW35MYGU9Q1oVYtpbA==}
     engines: {node: '>=12.0.0'}
     hasBin: true
 
@@ -4658,7 +4658,7 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
-  tree-sitter-cli@0.26.11: {}
+  tree-sitter-cli@0.27.0: {}
 
   tree-sitter@0.21.1:
     dependencies:
