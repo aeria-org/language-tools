@@ -39,8 +39,8 @@ importers:
         specifier: ^9.0.1
         version: 9.0.1
       vscode-languageserver-textdocument:
-        specifier: ^1.0.14
-        version: 1.0.14
+        specifier: ^1.0.15
+        version: 1.0.15
 
   packages/tree-sitter-aeria:
     dependencies:
@@ -66,7 +66,7 @@ importers:
     devDependencies:
       '@aeria-lang/language-server':
         specifier: file:../language-server
-        version: file:packages/language-server(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))
+        version: link:../language-server
       '@types/node':
         specifier: ^26.6.2
         version: 26.6.2
@@ -81,9 +81,6 @@ importers:
         version: 1.2.0(@types/node@26.6.2)
 
 packages:
-
-  '@aeria-lang/language-server@file:packages/language-server':
-    resolution: {directory: packages/language-server, type: directory}
 
   '@aeriajs/common@0.0.163':
     resolution: {integrity: sha512-rimRMpwHUSc6+dlq386awpaeqDqulygdg/XcoWX5IOnnaMNgEkBH1OlVDa1toSgYGNtFWjKM+L3LQ68XTaoiOA==}
@@ -2366,16 +2363,6 @@ packages:
     engines: {node: '>=18'}
 
 snapshots:
-
-  '@aeria-lang/language-server@file:packages/language-server(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))':
-    dependencies:
-      '@aeriajs/compiler': 0.0.77(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))
-      glob: 13.0.6
-      vscode-languageserver: 9.0.1
-      vscode-languageserver-textdocument: 1.0.15
-    transitivePeerDependencies:
-      - '@aeriajs/common'
-      - '@aeriajs/types'
 
   '@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4)':
     dependencies:
