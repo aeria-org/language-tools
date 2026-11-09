@@ -66,13 +66,13 @@ importers:
     devDependencies:
       '@aeria-lang/language-server':
         specifier: file:../language-server
-        version: link:../language-server
+        version: file:packages/language-server(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))
       '@types/node':
         specifier: ^26.6.5
         version: 26.6.5
       '@types/vscode':
-        specifier: 1.140.0
-        version: 1.140.0
+        specifier: 1.145.0
+        version: 1.145.0
       '@vscode/vsce':
         specifier: ^4.0.0
         version: 4.0.0
@@ -81,6 +81,9 @@ importers:
         version: 1.2.0(@types/node@26.6.5)
 
 packages:
+
+  '@aeria-lang/language-server@file:packages/language-server':
+    resolution: {directory: packages/language-server, type: directory}
 
   '@aeriajs/common@0.0.163':
     resolution: {integrity: sha512-rimRMpwHUSc6+dlq386awpaeqDqulygdg/XcoWX5IOnnaMNgEkBH1OlVDa1toSgYGNtFWjKM+L3LQ68XTaoiOA==}
@@ -608,6 +611,9 @@ packages:
   '@isaacs/nonrecursive-glob-match@1.0.3':
     resolution: {integrity: sha512-SI7kyKHq4XXDRozw+r9GlRZkia1ZkFrpLW98r2IC2Bpr8YkFGE3fvjzmxCG0x78A++69HmDNrDvSMYBZmHGpKA==}
 
+  '@isaacs/nonrecursive-glob-match@1.1.0':
+    resolution: {integrity: sha512-GPm/Dbvk5RLmhRnxXIa7nTpK0xtl4E0wj0MslsuNiJ1FIROU+2+9lgUC/dgF7Ey4QCWhfEsgxilMRMCdHPfDfw==}
+
   '@manypkg/find-root@3.1.0':
     resolution: {integrity: sha512-BcSqCyKhBVZ5YkSzOiheMCV41kqAFptW6xGqYSTjkVTl9XQpr+pqHhwgGCOHQtjDCv7Is6EFyA14Sm5GVbVABA==}
     engines: {node: '>=20.0.0'}
@@ -878,8 +884,8 @@ packages:
   '@types/sarif@2.1.7':
     resolution: {integrity: sha512-kRz0VEkJqWLf1LLVN4pT1cg1Z9wAuvI6L97V3m2f5B76Tg8d413ddvLBPTEHAZJlnn4XSvu0FkZtViCQGVyrXQ==}
 
-  '@types/vscode@1.140.0':
-    resolution: {integrity: sha512-KAB5RBZIgnUhpp4mKsVJPPHLOQKu6WtGy2xpfWjaajEXO4xIIC+UESAXLiQ9ewx6QD1uBmvC/S8BJzkbvv4bRA==}
+  '@types/vscode@1.145.0':
+    resolution: {integrity: sha512-mADZK4SF/j1n0+Qk4bH8NT1qTQGYDAsbhb5hStbzuB3hKP3mRH7xja5yUaIm7ExCh65Ff+C9XGwxcBvSlTCvkQ==}
 
   '@typescript/typescript-aix-ppc64@7.0.2':
     resolution: {integrity: sha512-MTKKkWB7p/0E9xi1d1tHtZ5PiLkGEMIq88pK2CubZjOsLtYTLqhgIgi6zepFa+9GHZ6h05NMCkQxGKiPXMxXtQ==}
@@ -1481,12 +1487,16 @@ packages:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
 
-  glob@13.0.6:
-    resolution: {integrity: sha512-Wjlyrolmm8uDpm/ogGyXZXb1Z+Ca2B8NbJwqBVg0axK9GbBeoS7yGV6vjXnYdGm6X53iehEuxxbyiKp8QmN4Vw==}
+  glob@13.0.7:
+    resolution: {integrity: sha512-wfsFgXQ8A3SEI9XGf7Nl3Y9l7ffSrGh7SUCT7vU/2CzYPep9kjxAn1S40F9OPKxAMGCVl7HtNlJhrCJUeUq83g==}
     engines: {node: 18 || 20 || >=22}
 
   glob@14.0.3:
     resolution: {integrity: sha512-A1vjIwC3qpdCso45Iw127gnp7sPhqgY8lUQhDrArIs+GbmfaaVPFuoyy7WyLT9EPZCRZ7j7aLdwUhQmHWesEow==}
+    engines: {node: 18 || 20 || >=22}
+
+  glob@14.0.4:
+    resolution: {integrity: sha512-mMiwNKoJZ4HAIRVJxotO6LsNRReA30gQwP9E2/p94tfLv+jygCNpKDjhhSL6OLY6LE371EZm5EAf7RpYuUqlsw==}
     engines: {node: 18 || 20 || >=22}
 
   global-directory@5.0.0:
@@ -1786,6 +1796,10 @@ packages:
 
   minimatch@11.0.4:
     resolution: {integrity: sha512-/UJ1dEoVQTjPNDh6SGlUo+ueLMmoHTas4q+8yaAR/5t6nLAIiBDJtoYUh20IYleix7ehiQkgczb84PE3uzHkxg==}
+    engines: {node: 20 || >=22}
+
+  minimatch@11.0.5:
+    resolution: {integrity: sha512-snPlVppFcYWfLLFQGhDxUyBcHNtMlWmn3jtj7pEaO+DP8pqL0IvAzXhMYmn1z9ASNtgmwLBdFxSf4tMUB0OTKA==}
     engines: {node: 20 || >=22}
 
   minimist@1.2.8:
@@ -2355,6 +2369,16 @@ packages:
 
 snapshots:
 
+  '@aeria-lang/language-server@file:packages/language-server(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))':
+    dependencies:
+      '@aeriajs/compiler': 0.0.77(@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4))(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))
+      glob: 14.0.4
+      vscode-languageserver: 9.0.1
+      vscode-languageserver-textdocument: 1.0.16
+    transitivePeerDependencies:
+      - '@aeriajs/common'
+      - '@aeriajs/types'
+
   '@aeriajs/common@0.0.163(@aeriajs/types@0.0.138(@phosphor-icons/core@2.1.1))(bson@6.10.4)':
     dependencies:
       '@aeriajs/types': 0.0.138(@phosphor-icons/core@2.1.1)
@@ -2906,6 +2930,8 @@ snapshots:
 
   '@isaacs/nonrecursive-glob-match@1.0.3': {}
 
+  '@isaacs/nonrecursive-glob-match@1.1.0': {}
+
   '@manypkg/find-root@3.1.0':
     dependencies:
       '@manypkg/tools': 2.1.2
@@ -3162,7 +3188,7 @@ snapshots:
 
   '@types/sarif@2.1.7': {}
 
-  '@types/vscode@1.140.0': {}
+  '@types/vscode@1.145.0': {}
 
   '@typescript/typescript-aix-ppc64@7.0.2':
     optional: true
@@ -3285,7 +3311,7 @@ snapshots:
       cockatiel: 3.2.1
       commander: 12.1.0
       form-data: 4.0.5
-      glob: 13.0.6
+      glob: 13.0.7
       hosted-git-info: 4.1.0
       jsonc-parser: 3.3.1
       leven: 3.1.0
@@ -3768,7 +3794,7 @@ snapshots:
     dependencies:
       is-glob: 4.0.3
 
-  glob@13.0.6:
+  glob@13.0.7:
     dependencies:
       minimatch: 10.2.6
       minipass: 7.1.3
@@ -3777,6 +3803,12 @@ snapshots:
   glob@14.0.3:
     dependencies:
       minimatch: 11.0.4
+      minipass: 7.1.3
+      path-scurry: 3.0.0
+
+  glob@14.0.4:
+    dependencies:
+      minimatch: 11.0.5
       minipass: 7.1.3
       path-scurry: 3.0.0
 
@@ -4052,6 +4084,11 @@ snapshots:
   minimatch@11.0.4:
     dependencies:
       '@isaacs/nonrecursive-glob-match': 1.0.3
+      brace-expansion: 5.0.12
+
+  minimatch@11.0.5:
+    dependencies:
+      '@isaacs/nonrecursive-glob-match': 1.1.0
       brace-expansion: 5.0.12
 
   minimist@1.2.8: {}
